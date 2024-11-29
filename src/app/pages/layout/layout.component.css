@@ -1,0 +1,8 @@
+  .main-content {
+    margin-top: 100px; /* Adjust based on navbar height */
+    padding: 15px;
+  }
+
+  .offcanvas-body {
+    overflow-y: auto;
+  }
