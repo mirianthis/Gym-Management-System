@@ -27,6 +27,16 @@ export const routes: Routes = [
         path: 'employee',
         component: EmployeeComponent,
         title: 'Employee'
+      },
+      {
+        path: 'home',
+        component: EmployeeComponent,
+        title: 'Home'
+      },
+      {
+        path: 'settings',
+        component: EmployeeComponent,
+        title: 'Settings'
       }
     ]
   }
