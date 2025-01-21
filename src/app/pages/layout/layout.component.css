@@ -6,10 +6,10 @@
 
 /* Sidebar */
 .sidebar__navbar {
-  width: 250px;
+  width: 15vw;
   height: 100vh;
   position: fixed;
-  left: -250px;
+  left: -15vw;
   top: 0;
   transition: left 0.5s ease;
   z-index: 1000;
@@ -58,7 +58,7 @@
 }
 
 .navbar__grub.sidebar-active .sidebar__content {
-  margin-left: 250px;
+  margin-left: 15vw;
 }
 
 .fa {
@@ -69,8 +69,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 50px;
+  right: 0px;
   position: absolute;
+  height: 60px;
+  width: 10vw;
 }
 
 .welcome-mgs {
@@ -79,4 +81,44 @@
 
 :host ::ng-deep .dropdown-menu {
   width: 100px;
+}
+
+.gym-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  height: 60px;
+  color: white; 
+  font-size: 25px;
+  background-color: rgb(15 16 16);
+}
+
+.navbar {
+  padding: unset;
+}
+
+.bar_icon {
+  margin-left: 10px;
+  width: 5vw;
+}
+
+.sidebar-gym-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  font-size: 25px;
+  height: 60px;
+  width: 15vw;
+  background-color: rgb(15 16 16);
+}
+
+.mid-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+  height: 60px;
+  color: white; 
 }

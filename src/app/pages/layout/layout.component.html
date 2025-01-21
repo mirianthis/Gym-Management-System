@@ -2,8 +2,8 @@
   <!-- Sidebar -->
   <div class="sidebar__navbar bg-dark" [class.active]="sidebarActive">
     <span (click)="toggleSidebar()"></span>
-    <div class="px-3 py-4 position-relative">
-      <!-- <a routerLink="/dashboard" routerLinkActive="active" class="brand__sidebar d-block">Sidebar</a> -->
+    <div *ngIf="sidebarActive" class="sidebar-gym-name">CODE GYM</div>
+    <div class="px-3 position-relative">
       <ul class="sidebar__list--menu mt-5">
         <li class="sidebar-item">
           <a routerLink="/dashboard" routerLinkActive="active" [class.active]="isActive('dashboard')"
@@ -34,10 +34,15 @@
 
   <!-- Sidebar Content -->
   <div class="sidebar__content">
-    <nav class="navbar navbar-expand-md sidebar__side p-3 bg-dark" style="height: 60px;">
+    <nav class="navbar navbar-expand-md sidebar__side bg-dark" style="height: 60px;">
+      <div *ngIf="!sidebarActive" class="gym-name">CODE GYM</div>
       <a class="navbar__menu position-relative d-inline-block" (click)="toggleSidebar()">
         <i class="fa fa-bars bar_icon" aria-hidden="true"></i>
       </a>
+      <div class="mid-title">
+        <i class="fa fa-dumbbell" aria-hidden="true"></i>
+        CODE GYM - GYM Management System
+      </div>
       <div class="welcome">
         <span class="welcome-mgs">Welcome {{ userName }} </span>
         <div class="dropdown-left">
