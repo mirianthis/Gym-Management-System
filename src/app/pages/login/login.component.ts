@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginObject, LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,15 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginObj: any = {
-    userName: '',
-    password: ''
-  } 
+
+  constructor(private loginService: LoginService) { }
+
+  loginObj: LoginObject = {userName: '', password: ''};
 
   router = inject(Router)
 
   onLogin() {
-    if(this.loginObj.userName === 'admin' && this.loginObj.password === '123456') {
-      this.router.navigateByUrl('/dashboard')
-    } else {
-      alert('Wrong Credentials')
-    }
+    this.loginService.login(this.loginObj);
+    this.loginService.userName = this.loginObj.userName; 
   }
 }
