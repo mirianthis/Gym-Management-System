@@ -22,7 +22,7 @@
 }
 
 .charts {
-	height: calc(70vh - 50px - 80px);
+	height: calc(70vh - 50px - 60px);
 	width: 95%;
 	display: flex;
 	justify-content: center;
