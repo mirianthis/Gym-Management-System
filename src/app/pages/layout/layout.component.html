@@ -1,62 +1,57 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <div class="top-navbar d-flex align-items-center">
-      <div class="d-flex align-items-center" id="navbarButtonAnchor">
-        <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div>
-        <form class="d-flex mt-3 mb-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a routerLink="/home" routerLinkActive="active" class="nav-link text-white" aria-current="page">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-              Home
-            </a>
-          </li>
-          <li>
-            <a routerLink="/dashboard" routerLinkActive="active" class="nav-link text-white">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a routerLink="/employee" routerLinkActive="active" class="nav-link text-white">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-              Employee
-            </a>
-          </li>
-          <li>
-            <a routerLink="/products" routerLinkActive="active" class="nav-link text-white">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-              Products
-            </a>
-          </li>
-          <li>
-            <a routerLink="/customers" routerLinkActive="active" class="nav-link text-white">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-              Customers
-            </a>
-          </li>
-        </ul>
-      </div>
+<div class="navbar__grub" [class.sidebar-active]="sidebarActive">
+  <!-- Sidebar -->
+  <div class="sidebar__navbar bg-dark" [class.active]="sidebarActive">
+    <span (click)="toggleSidebar()"></span>
+    <div class="px-3 py-4 position-relative">
+      <!-- <a routerLink="/dashboard" routerLinkActive="active" class="brand__sidebar d-block">Sidebar</a> -->
+      <ul class="sidebar__list--menu mt-5">
+        <li class="sidebar-item">
+          <a routerLink="/dashboard" routerLinkActive="active" [class.active]="isActive('dashboard')"
+            (click)="setActive('dashboard')" class="sidebar-item">
+            <i class="fa fa-chart-line mr-2" aria-hidden="true"></i>Dashboard
+          </a>
+        </li>
+        <li>
+          <a routerLink="/home" routerLinkActive="active" [class.active]="isActive('home')" (click)="setActive('home')">
+            <i class="fa fa-house" aria-hidden="true"></i>Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/members" routerLinkActive="active" [class.active]="isActive('members')"
+            (click)="setActive('members')">
+            <i class="fa fa-user mr-2" aria-hidden="true"></i>Members
+          </a>
+        </li>
+        <li>
+          <a routerLink="/settings" routerLinkActive="active" [class.active]="isActive('settings')"
+            (click)="setActive('settings')">
+            <i class="fa fa-gear mr-2" aria-hidden="true"></i>Settings
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-</nav>
 
-<!-- Main content area -->
-<div class="main-content">
-  <router-outlet></router-outlet>
+  <!-- Sidebar Content -->
+  <div class="sidebar__content">
+    <nav class="navbar navbar-expand-md sidebar__side p-3 bg-dark" style="height: 60px;">
+      <a class="navbar__menu position-relative d-inline-block" (click)="toggleSidebar()">
+        <i class="fa fa-bars bar_icon" aria-hidden="true"></i>
+      </a>
+      <div class="welcome">
+        <span class="welcome-mgs">Welcome {{ userName }} </span>
+        <div class="dropdown-left">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false" style="margin-left: 5px; background-color: transparent; border-color: transparent;">
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="page__content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

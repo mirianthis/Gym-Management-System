@@ -1,7 +1,82 @@
-  .offcanvas-body {
-    overflow-y: auto;
-  }
+/* Wrapper for sidebar and content */
+.navbar__grub {
+  display: flex;
+  transition: margin-left 0.5s ease;
+}
 
-  .navbar {
-    height: 80px;
-  }
+/* Sidebar */
+.sidebar__navbar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: -250px;
+  top: 0;
+  transition: left 0.5s ease;
+  z-index: 1000;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar__navbar.active {
+  left: 0;
+}
+
+.bar_icon {
+ color: white;
+ font-size: large; 
+}
+
+/* Sidebar menu */
+.sidebar__list--menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
+
+.sidebar__list--menu li {
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.sidebar__list--menu li a {
+  color: gray;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar__list--menu li a:hover,
+.sidebar__list--menu li a.active {
+  color: white;
+  border-radius: 5px;
+}
+
+/* Content area */
+.sidebar__content {
+  flex-grow: 1;
+  margin-left: 0;
+  transition: margin-left 0.5s ease;
+}
+
+.navbar__grub.sidebar-active .sidebar__content {
+  margin-left: 250px;
+}
+
+.fa {
+  margin-right: 1rem;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 50px;
+  position: absolute;
+}
+
+.welcome-mgs {
+  color: white;
+}
+
+:host ::ng-deep .dropdown-menu {
+  width: 100px;
+}
