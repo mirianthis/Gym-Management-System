@@ -4,6 +4,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { MembersListComponent } from './pages/members-list/members-list.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,11 @@ export const routes: Routes = [
         path: 'employee',
         component: EmployeeComponent,
         title: 'Employee'
+      },
+      {
+        path: 'members-list',
+        component: MembersListComponent,
+        title: 'Members List'
       },
       {
         path: 'home',
