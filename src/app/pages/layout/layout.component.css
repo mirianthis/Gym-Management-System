@@ -91,11 +91,12 @@
   height: 60px;
   color: white; 
   font-size: 25px;
-  background-color: rgb(15 16 16);
+  background-color: var(--background-secondary-color);
 }
 
 .navbar {
   padding: unset;
+  background-color: var(--background-primary-color);
 }
 
 .bar_icon {
@@ -111,7 +112,7 @@
   font-size: 25px;
   height: 60px;
   width: 15vw;
-  background-color: rgb(15 16 16);
+  background-color: var(--background-secondary-color);
 }
 
 .mid-title {

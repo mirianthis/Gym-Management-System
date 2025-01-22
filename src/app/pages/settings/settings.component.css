@@ -54,3 +54,35 @@
   margin-left: 30px;
   border-style: solid;
 }
+
+.input-field-container {
+  width: 60vw;
+  margin-left: 30px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  font-size: larger;
+  box-shadow: none;
+}
+
+.footer-button {
+  background-color: var(--background-primary-color);
+  color: white;
+  border-color: rgb(209, 201, 201);
+  box-shadow: none;
+  border-style: solid;
+  height: 40px;
+  margin-left: 30px;
+}
