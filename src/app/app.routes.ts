@@ -5,6 +5,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { MembersListComponent } from './pages/members-list/members-list.component';
+import { AddMemberComponent } from './pages/members-list/add-member/add-member.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,11 @@ export const routes: Routes = [
         path: 'members-list',
         component: MembersListComponent,
         title: 'Members List'
+      },
+      {
+        path: 'add-member',
+        component: AddMemberComponent,
+        title: 'Add Member'
       },
       {
         path: 'home',
