@@ -9,8 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './members-list.component.css'
 })
 export class MembersListComponent {
-  addMember() {
-
-  }
 
 }
