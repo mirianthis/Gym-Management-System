@@ -1,0 +1,45 @@
+.header {
+	height: 7vh;
+  width: 100vw;
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+  border-bottom: 2px solid;
+  border-color: lightgrey;
+}
+
+.header-text {
+	font-size: 25px;
+	margin-left: 8px;
+}
+
+.bar-icon {
+  font-size: x-large;
+  margin-left: 40px;
+}
+
+.header-button {
+  background-color: darkgray;
+  color: white;
+  border-color: rgb(209, 201, 201);
+  box-shadow: none;
+  border-style: solid;
+  height: 40px;
+  margin-left: 30px;
+}
+
+.table {
+  width: 95vw;
+  margin-top: 40px;
+}
+
+.icon-style {
+  background: red;
+  border-radius: 25px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

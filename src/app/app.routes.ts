@@ -2,10 +2,11 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { EmployeeComponent } from './pages/employee/employee.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { MembersListComponent } from './pages/members-list/members-list.component';
 import { AddMemberComponent } from './pages/members-list/add-member/add-member.component';
+import { MembershipListComponent } from './pages/membership-list/membership-list.component';
+import { AddMembershipComponent } from './pages/membership-list/add-membership/add-membership.component';
 
 export const routes: Routes = [
   {
@@ -27,11 +28,6 @@ export const routes: Routes = [
         title: 'Dashboard'
       },
       {
-        path: 'employee',
-        component: EmployeeComponent,
-        title: 'Employee'
-      },
-      {
         path: 'members-list',
         component: MembersListComponent,
         title: 'Members List'
@@ -42,9 +38,14 @@ export const routes: Routes = [
         title: 'Add Member'
       },
       {
-        path: 'home',
-        component: EmployeeComponent,
-        title: 'Home'
+        path: 'membership-list',
+        component: MembershipListComponent,
+        title: 'Membership List'
+      },
+      {
+        path: 'add-membership',
+        component: AddMembershipComponent,
+        title: 'Add Membership'
       },
       {
         path: 'settings',
