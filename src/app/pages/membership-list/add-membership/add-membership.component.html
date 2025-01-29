@@ -1,1 +1,150 @@
-<p>add-membership works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="header">
+      <div>
+        <i class="fa fa-user bar-icon" aria-hidden="true"></i>
+        <span class="header-text">Add Membership</span>
+      </div>
+      <button class="header-button" routerLink="/add-member">
+        <i class="fa fa-bars bar_icon" aria-hidden="true"></i>
+        Membership List
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="membership-list">
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Membership Name</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input">
+          <input class="form-input-field" type="text" name="" id="">
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Membership Category</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input">
+          <select class="form-input-field" aria-label="Default select example">
+            <option selected>Select Category</option>
+            <option value="1">*</option>
+            <option value="2">*</option>
+          </select>
+        </div>
+        <div class="form-button">
+          <button class="btn">Add Category</button>
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Membership Period</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input" style="display:-webkit-box">
+          <span class="" style="width: 6vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;" id="days">No. of Days</span>
+          <input type="text" class="form-input-field" style="width: 54vw;" aria-describedby="days">
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Membership Limit</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input" style="display:-webkit-box">
+          <div class="form-input-radio" style="width: 15vw;">
+            <input class="" type="radio" name="memberRatio" id="">
+            <label class="form-check-label" for="memberRatio">Limited</label>
+            <input class="" type="radio" name="memberRatio" id="">
+            <label class="form-check-label" for="prospectRatio">Unlimited</label>
+          </div>
+          <input type="text" class="form-input-field" style="width: 14vw; margin-right: 1vw;">
+          <select class="form-input-field" aria-label="Default select example" style="width: 30vw;">
+            <option selected>Select Category</option>
+            <option value="1">*</option>
+            <option value="2">*</option>
+          </select>
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Membership Amount</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input" style="display:-webkit-box">
+          <span class="" style="width: 2vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;" id="days">$</span>
+          <input type="text" class="form-input-field" style="width: 58vw;" aria-describedby="days">
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Select Class</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input">
+          <select class="form-input-field" aria-label="Default select example">
+            <option selected>Select Class</option>
+            <option value="1">*</option>
+            <option value="2">*</option>
+          </select>
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Installment Plan</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input" style="display:-webkit-box">
+          <input type="text" class="form-input-field" style="width: 10vw; margin-right: 13vw;">
+          <select class="form-input-field" aria-label="Default select example" style="width: 35vw;">
+            <option selected>Select Months</option>
+            <option value="1">*</option>
+            <option value="2">*</option>
+          </select>
+        </div>
+        <div class="form-button">
+          <button class="btn">Add installment plan</button>
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Signup Fee</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input" style="display:-webkit-box">
+          <span class="" style="width: 2vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;" id="days">$</span>
+          <input type="text" class="form-input-field" style="width: 58vw;" aria-describedby="days">
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Membership Description</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+        </div>
+        <div class="form-input">
+          <textarea type="text" class="form-input-field" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<div class="row">
+  <div class="measurement-units">
+    <div class="footer">
+      <button class="footer-button">Save Settings</button>
+      <button class="footer-button">Cancel</button>
+    </div>
+  </div>
+</div>
