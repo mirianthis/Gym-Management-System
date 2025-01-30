@@ -2,10 +2,10 @@
   <div class="row">
     <div class="header">
       <div>
-        <i class="fa fa-user bar-icon" aria-hidden="true"></i>
+        <i class="fa fa-users bar-icon" aria-hidden="true"></i>
         <span class="header-text">Add Membership</span>
       </div>
-      <button class="header-button" routerLink="/add-member">
+      <button class="header-button" routerLink="/membership-list">
         <i class="fa fa-bars bar_icon" aria-hidden="true"></i>
         Membership List
       </button>
@@ -37,7 +37,7 @@
           </select>
         </div>
         <div class="form-button">
-          <button class="btn">Add Category</button>
+          <button class="btn button" data-bs-toggle="modal" data-bs-target="#addCategoryModal">Add Category</button>
         </div>
       </div>
       <div class="row form-row">
@@ -112,7 +112,7 @@
           </select>
         </div>
         <div class="form-button">
-          <button class="btn">Add installment plan</button>
+          <button class="btn button" data-bs-toggle="modal" data-bs-target="#addInstallmentPlanModal">Add installment plan</button>
         </div>
       </div>
       <div class="row form-row">
@@ -126,14 +126,24 @@
           <input type="text" class="form-input-field" style="width: 58vw;" aria-describedby="days">
         </div>
       </div>
-      <div class="row form-row">
+      <div class="row form-row" style="height: 200px; align-items: flex-start;">
         <div class="col-3 form-title">
           <div class="">
             <span>Membership Description</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
         </div>
         <div class="form-input">
-          <textarea type="text" class="form-input-field" rows="4"></textarea>
+          <textarea type="text" class="form-input-field" style="height: 200px;"></textarea>
+        </div>
+      </div>
+      <div class="row form-row">
+        <div class="col-3 form-title">
+          <div class="">
+            <span>Membership Image</span>
+          </div>
+        </div>
+        <div class="form-input">
+          <input class="form-input-field" type="file" id="formFile">
         </div>
       </div>
     </div>
@@ -143,8 +153,130 @@
 <div class="row">
   <div class="measurement-units">
     <div class="footer">
-      <button class="footer-button">Save Settings</button>
+      <button class="footer-button">Save Membership</button>
       <button class="footer-button">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add Category Modal -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Category</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-subheader">
+        <input type="text" class="modal-input-field" placeholder="Enter Category Name">
+        <button type="button" class="modal-btn" data-bs-dismiss="modal">Add Category</button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">Regular</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">Limited</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">Total Gym Exercises for Abs</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">Total Gym Exercises for Legs</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">Total Gym Exercises for Biceps</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">Exercise</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Installment Plan Modal -->
+<div class="modal fade" id="addInstallmentPlanModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Installment Plan</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-subheader">
+        <input type="text" class="modal-input-field" placeholder="Enter Duration Number">
+        <select class="modal-input-field" aria-label="Default select example" style="width: 35vw;">
+          <option selected>Select Duration</option>
+          <option value="1">*</option>
+          <option value="2">*</option>
+        </select>
+        <button type="button" class="modal-btn" data-bs-dismiss="modal">Add Category</button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Plan</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">1 Year</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">1 Month</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">1 Week</td>
+              <td>
+                <button class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>
