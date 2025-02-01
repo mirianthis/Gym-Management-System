@@ -24,52 +24,50 @@
         </tr>
       </thead>
       <tbody>
-        <tr style="height: 40px;">
-          <th scope="row"><i class="fa fa-trophy icon-style" aria-hidden="true"></i></th>
-          <td>Gold Membership</td>
-          <td>300</td>
-          <td>1 month</td>
-          <td>$5</td>
-          <td>
-            <button style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;"><i class="fa fa-pen-to-square" aria-hidden="true"></i></button>
-            <button style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;"><i class="fa fa-trash-can" aria-hidden="true"></i></button>
-            <button style="background-color: lightseagreen; color: white; border-color: transparent;">Activities</button>
+        <tr *ngFor="let membership of memberships">
+          <th scope="row">
+            <i [class]="membership.icon" class="icon-style" aria-hidden="true"></i>
+          </th>
+
+          <!-- Membership Name -->
+          <td *ngIf="!membership.editMode">{{ membership.name }}</td>
+          <td *ngIf="membership.editMode">
+            <input type="text" [(ngModel)]="membership.name" class="form-control">
           </td>
-        </tr>
-        <tr style="height: 40px;">
-          <th scope="row"><i class="fa fa-handshake icon-style" aria-hidden="true"></i></th>
-          <td>Platinum Membership</td>
-          <td>360</td>
-          <td>1 month</td>
-          <td>$5</td>
-          <td>
-            <button style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;"><i class="fa fa-pen-to-square" aria-hidden="true"></i></button>
-            <button style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;"><i class="fa fa-trash-can" aria-hidden="true"></i></button>
-            <button style="background-color: lightseagreen; color: white; border-color: transparent;">Activities</button>
+
+          <!-- Membership Period -->
+          <td *ngIf="!membership.editMode">{{ membership.period }}</td>
+          <td *ngIf="membership.editMode">
+            <input type="number" [(ngModel)]="membership.period" class="form-control">
           </td>
-        </tr>
-        <tr style="height: 40px;">
-          <th scope="row"><i class="fa fa-award icon-style" aria-hidden="true"></i></th>
-          <td>Silver Membership</td>
-          <td>180</td>
-          <td>1 week</td>
-          <td>$5</td>
-          <td>
-            <button style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;"><i class="fa fa-pen-to-square" aria-hidden="true"></i></button>
-            <button style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;"><i class="fa fa-trash-can" aria-hidden="true"></i></button>
-            <button style="background-color: lightseagreen; color: white; border-color: transparent;">Activities</button>
+
+          <!-- Installment Plan -->
+          <td *ngIf="!membership.editMode">{{ membership.plan }}</td>
+          <td *ngIf="membership.editMode">
+            <input type="text" [(ngModel)]="membership.plan" class="form-control">
           </td>
-        </tr>
-        <tr style="height: 40px;">
-          <th scope="row"><i class="fa fa-users icon-style" aria-hidden="true"></i></th>
-          <td>Regular Membership</td>
-          <td>100</td>
-          <td>1 week</td>
-          <td>$5</td>
+
+          <!-- Signup Fee -->
+          <td *ngIf="!membership.editMode">{{ membership.fee }}</td>
+          <td *ngIf="membership.editMode">
+            <input type="text" [(ngModel)]="membership.fee" class="form-control">
+          </td>
+
+          <!-- Action Buttons -->
           <td>
-            <button style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;"><i class="fa fa-pen-to-square" aria-hidden="true"></i></button>
-            <button style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;"><i class="fa fa-trash-can" aria-hidden="true"></i></button>
-            <button style="background-color: lightseagreen; color: white; border-color: transparent;">Activities</button>
+            <button *ngIf="!membership.editMode" (click)="editMembership(membership)" style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;">
+              <i class="fa fa-pen-to-square"></i>
+            </button>
+            <button *ngIf="membership.editMode" (click)="saveMembership(membership)" style="margin-right: 5px; background-color: lightgreen; color: white; border-color: transparent;">
+              <i class="fa fa-check"></i>
+            </button>
+            <button *ngIf="membership.editMode" (click)="cancelEdit(membership)" style="margin-right: 5px; background-color: gold; color: white; border-color: transparent;">
+              <i class="fa fa-times"></i>
+            </button>
+            <button (click)="deleteMembership(membership)" style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
+              <i class="fa fa-trash-can" aria-hidden="true"></i>
+            </button>
+
           </td>
         </tr>
       </tbody>
