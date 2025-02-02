@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
-import { MembershipService } from '../../../services/membership/membership.service';
+import { MembershipService } from '../../../services/membership-service/membership.service';
 
 @Component({
   selector: 'app-add-membership',
