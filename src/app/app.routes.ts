@@ -7,6 +7,8 @@ import { MembersListComponent } from './pages/members-list/members-list.componen
 import { AddMemberComponent } from './pages/members-list/add-member/add-member.component';
 import { MembershipListComponent } from './pages/membership-list/membership-list.component';
 import { AddMembershipComponent } from './pages/membership-list/add-membership/add-membership.component';
+import { StaffListComponent } from './pages/staff-list/staff-list.component';
+import { AddStaffComponent } from './pages/staff-list/add-staff/add-staff.component';
 
 export const routes: Routes = [
   {
@@ -46,6 +48,16 @@ export const routes: Routes = [
         path: 'add-membership',
         component: AddMembershipComponent,
         title: 'Add Membership'
+      },
+      {
+        path: 'staff-list',
+        component: StaffListComponent,
+        title: 'Staff List'
+      },
+      {
+        path: 'add-staff',
+        component: AddStaffComponent,
+        title: 'Add Staff'
       },
       {
         path: 'settings',

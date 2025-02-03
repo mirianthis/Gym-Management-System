@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="header">
+      <div>
+        <i class="fa fa-bars bar-icon" aria-hidden="true"></i>
+        <span class="header-text">Staff List</span>
+      </div>
+      <button class="header-button" routerLink="/add-staff">
+        <i class="fa fa-plus bar_icon" aria-hidden="true"></i>
+        Add Staff
+      </button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center align-items-center">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Photo</th>
+          <th scope="col">Staff Member Name</th>
+          <th scope="col">Role</th>
+          <th scope="col">Staff Member Email</th>
+          <th scope="col">Mobile No.</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let staffMember of staff" style="height: 40px;">
+          <th scope="row"><i class="fa fa-user" aria-hidden="true"></i></th>
+           <!-- Member Name -->
+           <td *ngIf="!staffMember.editMode">{{ staffMember.name}}</td>
+           <td *ngIf="staffMember.editMode">
+             <input type="text" [(ngModel)]="staffMember.name" class="form-control">
+           </td>
+ 
+           <!-- Member Id -->
+           <td *ngIf="!staffMember.editMode">{{ staffMember.role }}</td>
+           <td *ngIf="staffMember.editMode">
+             <input type="text" [(ngModel)]="staffMember.role" class="form-control">
+           </td>
+ 
+           <!-- Member Join Date -->
+           <td *ngIf="!staffMember.editMode">{{ staffMember.email }}</td>
+           <td *ngIf="staffMember.editMode">
+             <input type="text" [(ngModel)]="staffMember.email" class="form-control">
+           </td>
+ 
+           <!-- Member Expire Date -->
+           <td *ngIf="!staffMember.editMode">{{ staffMember.mobile }}</td>
+           <td *ngIf="staffMember.editMode">
+             <input type="text" [(ngModel)]="staffMember.mobile" class="form-control">
+           </td>
+          <td>
+            <button *ngIf="!staffMember.editMode" (click)="editStaff(staffMember)" style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;">
+              <i class="fa fa-pen-to-square"></i>
+            </button>
+            <button *ngIf="staffMember.editMode" (click)="saveStaff(staffMember)" style="margin-right: 5px; background-color: lightgreen; color: white; border-color: transparent;">
+              <i class="fa fa-check"></i>
+            </button>
+            <button *ngIf="staffMember.editMode" (click)="cancelEdit(staffMember)" style="margin-right: 5px; background-color: gold; color: white; border-color: transparent;">
+              <i class="fa fa-times"></i>
+            </button>
+            <button (click)="deleteStaff(staffMember)" style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
+              <i class="fa fa-trash-can" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

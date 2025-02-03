@@ -1,0 +1,240 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="header">
+      <div>
+        <i class="fa fa-user bar-icon" aria-hidden="true"></i>
+        <span class="header-text">Add Staff</span>
+      </div>
+      <button class="header-button" routerLink="/add-staff">
+        <i class="fa fa-bars bar_icon" aria-hidden="true"></i>
+        Staff List
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="system-setttings">
+      <div class="section-title">
+        <span>Personal Information</span>
+      </div>
+      <div class="form">
+        <div class="field">
+          <div class="field-title">
+            <span>First Name</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Middle Name</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Last Name</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Gender</span>
+          </div>
+          <select class="input-field" aria-label="Default select example">
+            <option selected>Male</option>
+            <option value="1">Female</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Date of Birth</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="row form-row">
+          <div class="col-3 form-title">
+            <div class="">
+              <span>Assign Role</span><span style="color: red; margin-left: 4px;">*</span>
+            </div>
+          </div>
+          <div class="form-input" style="display:-webkit-box">
+            <select class="form-input-field" aria-label="Default select example">
+              <option selected>Select Role</option>
+              <option value="1">*</option>
+              <option value="2">*</option>
+            </select>
+          </div>
+          <div class="form-button">
+            <button class="btn button" data-bs-toggle="modal" data-bs-target="#addRoleModal">Add/Remove Role</button>
+          </div>
+        </div>
+        <div class="row form-row">
+          <div class="col-3 form-title">
+            <div class="">
+              <span>Specialization</span><span style="color: red; margin-left: 4px;">*</span>
+            </div>
+          </div>
+          <div class="form-input" style="display:-webkit-box">
+            <select class="form-input-field" aria-label="Default select example">
+              <option selected>Select Specialization</option>
+              <option value="1">*</option>
+              <option value="2">*</option>
+            </select>
+          </div>
+          <div class="form-button">
+            <button class="btn button" data-bs-toggle="modal" data-bs-target="#addSpecializationModal">Add/Remove Specialization</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="contact-information">
+      <div class="section-title">
+        <span>Contact Information</span>
+      </div>
+      <div class="form">
+        <div class="field">
+          <div class="field-title">
+            <span>Home Town Address</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>City</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Mobile Number</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Phone</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Email</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="login-information">
+      <div class="section-title">
+        <span>Login Information</span>
+      </div>
+      <div class="form">
+        <div class="field">
+          <div class="field-title">
+            <span>Username</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="text" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Password</span><span style="color: red; margin-left: 4px;">*</span>
+          </div>
+          <input class="input-field" type="password" name="" id="">
+        </div>
+        <div class="field">
+          <div class="field-title">
+            <span>Display Image</span>
+          </div>
+          <input class="input-field" type="file" id="formFile">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="measurement-units">
+    <div class="footer">
+      <button class="footer-button" (click)="onSave()">Save Staff</button>
+      <button class="footer-button" (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Specialization Modal -->
+<div class="modal fade" id="addSpecializationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Specialization</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-subheader">
+        <input type="text" class="modal-input-field" [(ngModel)]="newSpecialization" placeholder="Enter Specialization">
+        <button type="button" class="modal-btn" (click)="addSpecialization()">Add Specialization</button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let specialization of specializations">
+              <td>{{ specialization }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteSpecialization(specialization)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add Role Modal -->
+<div class="modal fade" id="addRoleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Role</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-subheader">
+        <input type="text" class="modal-input-field" [(ngModel)]="newRole" placeholder="Enter Role">
+        <button type="button" class="modal-btn" (click)="addRole()">Add Role</button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let role of roles">
+              <td>{{ role }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteRole(role)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

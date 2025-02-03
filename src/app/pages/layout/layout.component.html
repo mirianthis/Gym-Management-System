@@ -23,6 +23,12 @@
           </a>
         </li>
         <li>
+          <a routerLink="/staff-list" routerLinkActive="active" [class.active]="isActive('staff')"
+            (click)="setActive('staff')">
+            <i class="fa fa-user-tie mr-2" aria-hidden="true"></i>Staff List
+          </a>
+        </li>
+        <li>
           <a routerLink="/settings" routerLinkActive="active" [class.active]="isActive('settings')"
             (click)="setActive('settings')">
             <i class="fa fa-gear mr-2" aria-hidden="true"></i>Settings
