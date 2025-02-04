@@ -17,6 +17,11 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'logout',
+    component: LoginComponent,
+    title: 'Logout'
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
@@ -63,11 +68,6 @@ export const routes: Routes = [
         path: 'settings',
         component: SettingsComponent,
         title: 'Settings'
-      },
-      {
-        path: 'logout',
-        component: LoginComponent,
-        title: 'Logout'
       }
     ]
   }

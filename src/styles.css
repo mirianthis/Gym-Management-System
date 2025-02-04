@@ -4,3 +4,8 @@
   --background-primary-color: #E7D283;
   --background-secondary-color: #DF9755;
 }
+
+html {
+  height: 100dvh;
+  width: 100dvw;
+}
