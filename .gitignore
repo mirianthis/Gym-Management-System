@@ -1,42 +1,87 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# ===========================
+# Frontend (Angular)
+# ===========================
 
 # Compiled output
 /dist
 /tmp
 /out-tsc
-/bazel-out
+/.angular
 
-# Node
+# Dependencies
 /node_modules
+
+# npm logs
 npm-debug.log
 yarn-error.log
 
 # IDEs and editors
-.idea/
-.project
+/.idea/
+/.project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+/.vscode/*
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+# Visual Studio Code specific
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.history/
 
 # Miscellaneous
 /.angular/cache
 .sass-cache/
 /connect.lock
 /coverage
-/libpeerconnection.log
-testem.log
-/typings
+
+# ===========================
+# Backend (Django)
+# ===========================
+
+# Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.env/
+.venv/
+.env.*  # In case there are multiple environment directories
+
+# Django-specific files
+*.sqlite3       # SQLite database files (if using SQLite)
+db.sqlite3      # Local DB file for SQLite
+
+# Django migrations
+*/migrations/*.py
+*/migrations/*.pyc
+
+# Logs and local files
+*.log
+*.pot
+*.mo
+
+# Miscellaneous
+*.swp           # Swap files from editors like vim
+*.swo
+*.pid
+*.bak
+*.tmp
 
 # System files
 .DS_Store
 Thumbs.db
+
+# ===========================
+# Other Miscellaneous
+# ===========================
+
+# Node.js modules (for backend, if applicable)
+node_modules/
+
+# .env files
+*.env           # Sensitive environment variables file
