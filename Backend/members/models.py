@@ -7,14 +7,14 @@ class Member(models.Model):
     first_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100, blank=True, null=True)
     last_name = models.CharField(max_length=100)
-    gender = models.CharField(max_length=10, choices=[('Male', 'Male'), ('Female', 'Female'), ('Other', 'Other')])
+    gender = models.CharField(max_length=10, choices=[('Male', 'Male'), ('Female', 'Female'), ('Other', 'Other')], blank=True, null=True)
     dob = models.DateField()  # Date of Birth
     group = models.CharField(max_length=100, blank=True, null=True)
 
     # Contact Information
     address = models.TextField()
     city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
+    state = models.CharField(max_length=100, blank=True, null=True)
     zip_code = models.CharField(max_length=20)
     mobile_number = models.CharField(max_length=15)
     phone = models.CharField(max_length=15, blank=True, null=True)
@@ -40,7 +40,7 @@ class Member(models.Model):
     referred_by = models.CharField(max_length=100, blank=True, null=True)
     inquiry_date = models.DateField()
     trial_end_date = models.DateField()
-    member_type = models.CharField(max_length=100)
+    member_type = models.CharField(max_length=100, blank=True, null=True)
     membership_type = models.CharField(max_length=100)
     class_choice = models.CharField(max_length=100)
     membership_status = models.CharField(max_length=50, choices=[('Active', 'Active'), ('Inactive', 'Inactive')])

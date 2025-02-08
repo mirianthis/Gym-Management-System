@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MembershipService } from '../../services/membership-service/membership.service';
 import { MembersService } from '../../services/members-service/members.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -45,3 +44,7 @@ export class MembersListComponent implements OnInit {
     }
   }
 }
+function providerHttpClient(): import("@angular/core").Provider {
+  throw new Error('Function not implemented.');
+}
+

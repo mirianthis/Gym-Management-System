@@ -5,7 +5,7 @@
         <i class="fa fa-user bar-icon" aria-hidden="true"></i>
         <span class="header-text">Add Member</span>
       </div>
-      <button class="header-button" routerLink="/add-member">
+      <button class="header-button" routerLink="/members-list">
         <i class="fa fa-bars bar_icon" aria-hidden="true"></i>
         Members List
       </button>
@@ -27,7 +27,7 @@
           <div class="field-title">
             <span>First Name</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.first_name">
         </div>
         <div class="field">
           <div class="field-title">
@@ -39,7 +39,7 @@
           <div class="field-title">
             <span>Last Name</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.last_name">
         </div>
         <div class="field">
           <div class="field-title">
@@ -54,7 +54,7 @@
           <div class="field-title">
             <span>Date of Birth</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.dob">
         </div>
         <div class="field">
           <div class="field-title">
@@ -81,13 +81,13 @@
           <div class="field-title">
             <span>Address</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.address">
         </div>
         <div class="field">
           <div class="field-title">
             <span>City</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.city">
         </div>
         <div class="field">
           <div class="field-title">
@@ -99,13 +99,13 @@
           <div class="field-title">
             <span>Zip Code</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.zip_code">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Mobile Number</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.mobile_number">
         </div>
         <div class="field">
           <div class="field-title">
@@ -117,7 +117,7 @@
           <div class="field-title">
             <span>Email</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.email">
         </div>
       </div>
     </div>
@@ -183,13 +183,13 @@
           <div class="field-title">
             <span>Username</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.username">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Password</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="password" name="" id="">
+          <input class="input-field" type="password" name="" id="" [(ngModel)]="newMember.password">
         </div>
         <div class="field">
           <div class="field-title">
@@ -282,7 +282,7 @@
           </div>
         </div>
         <div class="form-input">
-          <input class="form-input-field" type="text" name="" id="">
+          <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newMember.inquiry_date">
         </div>
       </div>
       <div class="row form-row">
@@ -292,7 +292,7 @@
           </div>
         </div>
         <div class="form-input">
-          <input class="form-input-field" type="text" name="" id="">
+          <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newMember.trial_end_date">
         </div>
       </div>
       <div class="row form-row">
@@ -317,7 +317,7 @@
           </div>
         </div>
         <div class="form-input">
-          <select class="form-input-field" aria-label="Default select example">
+          <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newMember.membership_type">
             <option selected>Select Membership</option>
             <option value="1">*</option>
             <option value="2">*</option>
@@ -334,7 +334,7 @@
           </div>
         </div>
         <div class="form-input">
-          <select class="form-input-field" aria-label="Default select example">
+          <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newMember.class_choice">
             <option selected>Select Class</option>
             <option value="1">*</option>
             <option value="2">*</option>
@@ -347,18 +347,14 @@
       <div class="row form-row">
         <div class="col-3 form-title">
           <div class="">
-            <span>Membership Status</span>
+            <span>Membership Status</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
         </div>
         <div class="form-input-radio">
-          <input class="" type="radio" name="memberRatio" id="">
-          <label class="form-check-label" for="prospectRatio">Prospect</label>
-          <input class="" type="radio" name="continueRatio" id="">
-          <label class="form-check-label" for="continueRatio">Continue</label>
-          <input class="" type="radio" name="expiredRatio" id="">
-          <label class="form-check-label" for="continueRatio">Expired</label>
-          <input class="" type="radio" name="memberRatio" id="">
-          <label class="form-check-label" for="droppedRatio">Dropped</label>
+          <input class="" type="radio" name="membershipStatus" id="active" value="Active" [(ngModel)]="newMember.membership_status">
+          <label class="form-check-label" for="prospectRatio">Active</label>
+          <input class="" type="radio" name="membershipStatus" id="inactive" value="Inactive" [(ngModel)]="newMember.membership_status">
+          <label class="form-check-label" for="continueRatio">Inactive</label>
         </div>
       </div>
       <div class="row form-row">
@@ -368,7 +364,7 @@
           </div>
         </div>
         <div class="form-input">
-          <input class="form-input-field" type="text" name="" id="">
+          <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newMember.first_payment_date">
         </div>
       </div>
     </div>

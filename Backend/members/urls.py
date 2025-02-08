@@ -6,6 +6,6 @@ router = DefaultRouter()
 router.register(r'members', MemberViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
-    path('members/', MemberListCreateView.as_view(), name='members-list')
+    path('', include(router.urls)),  # This will handle the /members/ endpoint with viewset.
+    path('members/', MemberListCreateView.as_view(), name='members-list')  # If you want to keep this as well for manual view.
 ]

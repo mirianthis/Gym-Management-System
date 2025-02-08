@@ -1,11 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, firstValueFrom } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MembersService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  private apiUrl = 'http://127.0.0.1:8000/api/members/';
 
   members = [
     {
@@ -41,7 +46,7 @@ export class MembersService {
     // this.members = this.members.filter(m => m !== member);
   }
 
-  addMember(member: any) {
+  addMemberTest(member: any) {
     this.members.push({
       id: `M${this.members.length + 1}`, // Auto-generate member ID
       name: member.name,
@@ -52,4 +57,29 @@ export class MembersService {
       originalData: {}
     });
   }
+
+    // Get all members
+    getMembers(): Observable<any> {
+      return this.http.get(this.apiUrl);
+    }
+  
+    // Get a single member by ID
+    getMemberById(id: number): Observable<any> {
+      return this.http.get(`${this.apiUrl}${id}/`);
+    }
+  
+    // Add a new member
+    async addMember(memberData: any): Promise<any> {
+      return firstValueFrom(this.http.post(this.apiUrl, memberData));
+    }
+  
+    // Update a member
+    updateMember(id: number, memberData: any): Observable<any> {
+      return this.http.put(`${this.apiUrl}${id}/`, memberData);
+    }
+  
+    // Delete a member
+    deleteMember(id: number): Observable<any> {
+      return this.http.delete(`${this.apiUrl}${id}/`);
+    }
 }
