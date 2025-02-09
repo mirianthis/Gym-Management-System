@@ -38,8 +38,10 @@ ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["127.0.0.1"])
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[])
 CORS_ALLOW_ALL_ORIGINS = env.bool("CORS_ALLOW_ALL_ORIGINS", default=False)
 
-print("CORS_ALLOWED_ORIGINS from env:", CORS_ALLOWED_ORIGINS)
-print("CORS_ALLOW_ALL_ORIGINS from env:", CORS_ALLOW_ALL_ORIGINS)
+# Media storage
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Application definition

@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import { MembersService } from '../../services/members-service/members.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Member } from '../../models/members.model';
 
 @Component({
   selector: 'app-members-list',
@@ -12,12 +14,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './members-list.component.css'
 })
 export class MembersListComponent implements OnInit {
-  members: any;
+  members$?: Observable<any>;
 
   constructor(private membersService: MembersService) { }
 
   ngOnInit() {
-    this.members = this.membersService.members;
+    this.members$ = this.membersService.getMembers();
   }
 
   // Enable Edit Mode
@@ -38,13 +40,6 @@ export class MembersListComponent implements OnInit {
   }
 
   deleteMember(member: any) {
-    const index = this.members.indexOf(member);
-    if (index !== -1) {
-      this.members.splice(index, 1);
-    }
   }
-}
-function providerHttpClient(): import("@angular/core").Provider {
-  throw new Error('Function not implemented.');
 }
 

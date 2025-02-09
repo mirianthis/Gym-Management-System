@@ -33,7 +33,7 @@
           <div class="field-title">
             <span>Middle Name</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.middle_name">
         </div>
         <div class="field">
           <div class="field-title">
@@ -45,9 +45,10 @@
           <div class="field-title">
             <span>Gender</span>
           </div>
-          <select class="input-field" aria-label="Default select example">
-            <option selected>Male</option>
-            <option value="1">Female</option>
+          <select class="input-field" aria-label="Default select example" [(ngModel)]="newMember.gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <div class="field">
@@ -60,12 +61,12 @@
           <div class="field-title">
             <span>Group</span>
           </div>
-          <select class="input-field" aria-label="Default select example">
-            <option selected>Bodybuilding</option>
-            <option value="1">Aerobics</option>
-            <option value="2">Yoga</option>
-            <option value="3">Pilates</option>
-            <option value="4">Boxing</option>
+          <select class="input-field" aria-label="Default select example" [(ngModel)]="newMember.group">
+            <option value="Bodybuilding">Bodybuilding</option>
+            <option value="Aerobics">Aerobics</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Pilates">Pilates</option>
+            <option value="Boxing">Boxing</option>
           </select>
         </div>
       </div>
@@ -93,7 +94,7 @@
           <div class="field-title">
             <span>State</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.state">
         </div>
         <div class="field">
           <div class="field-title">
@@ -111,7 +112,7 @@
           <div class="field-title">
             <span>Phone</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newMember.phone">
         </div>
         <div class="field">
           <div class="field-title">
@@ -132,43 +133,43 @@
           <div class="field-title">
             <span>Weight</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" [(ngModel)]="newMember.weight">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Height</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" [(ngModel)]="newMember.height">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Chest</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" [(ngModel)]="newMember.chest">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Waist</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" [(ngModel)]="newMember.waist">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Thighs</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" [(ngModel)]="newMember.thighs">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Arms</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" [(ngModel)]="newMember.arms">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Fat</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" [(ngModel)]="newMember.fat">
         </div>
       </div>
     </div>
@@ -195,7 +196,7 @@
           <div class="field-title">
             <span>Display Image</span>
           </div>
-          <input class="input-field" type="file" id="formFile">
+          <input class="input-field" type="file" id="formFile" [(ngModel)]="newMember.display_image">
         </div>
       </div>
     </div>
@@ -213,11 +214,11 @@
         </div>
         <div class="form-input">
           <select class="form-input-field" aria-label="Default select example">
-            <option selected>Joseph Bratt</option>
-            <option value="1">John Doe</option>
-            <option value="2">Berry Green</option>
-            <option value="3">Sara Safari</option>
-            <option value="4">Noel Leyva</option>
+            <option [ngValue]="'Joseph Bratt'">Joseph Bratt</option>
+            <option [ngValue]="'John Doe'">John Doe</option>
+            <option [ngValue]="'Berry Green'">Berry Green</option>
+            <option [ngValue]="'Sara Safari'">Sara Safari</option>
+            <option [ngValue]="'Noel Leyva'">Noel Leyva</option>
           </select>
         </div>
         <div class="form-button">
@@ -231,10 +232,13 @@
           </div>
         </div>
         <div class="form-input">
-          <select class="form-input-field" aria-label="Default select example">
-            <option selected>Select Interest</option>
-            <option value="1">*</option>
-            <option value="2">*</option>
+          <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newMember.interested_area">
+            <option [ngValue]="null" disabled selected>Select Interest</option>
+            <option [ngValue]="'Bodybuilding'">Bodybuilding</option>
+            <option [ngValue]="'Aerobics'">Aerobics</option>
+            <option [ngValue]="'Yoga'">Yoga</option>
+            <option [ngValue]="'Pilates'">Pilates</option>
+            <option [ngValue]="'Boxing'">Boxing</option>
           </select>
         </div>
         <div class="form-button">
@@ -265,10 +269,13 @@
           </div>
         </div>
         <div class="form-input">
-          <select class="form-input-field" aria-label="Default select example">
-            <option selected>Select Staff Member</option>
-            <option value="1">*</option>
-            <option value="2">*</option>
+          <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newMember.referred_by">
+            <option [ngValue]="null" disabled selected>Select Staff Member</option>
+            <option [ngValue]="'Joseph Bratt'">Joseph Bratt</option>
+            <option [ngValue]="'John Doe'">John Doe</option>
+            <option [ngValue]="'Berry Green'">Berry Green</option>
+            <option [ngValue]="'Sara Safari'">Sara Safari</option>
+            <option [ngValue]="'Noel Leyva'">Noel Leyva</option>
           </select>
         </div>
         <div class="form-button">
@@ -302,14 +309,16 @@
           </div>
         </div>
         <div class="form-input-radio">
-          <input class="" type="radio" name="memberRatio" id="">
-          <label class="form-check-label" for="memberRatio">Member</label>
-          <input class="" type="radio" name="memberRatio" id="">
-          <label class="form-check-label" for="prospectRatio">Prospect</label>
-          <input class="" type="radio" name="memberRatio" id="">
-          <label class="form-check-label" for="droppedRatio">Dropped</label>
+          <input type="radio" name="memberType" id="member" [(ngModel)]="newMember.member_type" value="Member">
+          <label class="form-check-label" for="member">Member</label>
+      
+          <input type="radio" name="memberType" id="prospect" [(ngModel)]="newMember.member_type" value="Prospect">
+          <label class="form-check-label" for="prospect">Prospect</label>
+      
+          <input type="radio" name="memberType" id="dropped" [(ngModel)]="newMember.member_type" value="Dropped">
+          <label class="form-check-label" for="dropped">Dropped</label>
         </div>
-      </div>
+      </div>      
       <div class="row form-row">
         <div class="col-3 form-title">
           <div class="">
@@ -351,9 +360,11 @@
           </div>
         </div>
         <div class="form-input-radio">
-          <input class="" type="radio" name="membershipStatus" id="active" value="Active" [(ngModel)]="newMember.membership_status">
+          <input class="" type="radio" name="membershipStatus" id="active" value="Active"
+            [(ngModel)]="newMember.membership_status">
           <label class="form-check-label" for="prospectRatio">Active</label>
-          <input class="" type="radio" name="membershipStatus" id="inactive" value="Inactive" [(ngModel)]="newMember.membership_status">
+          <input class="" type="radio" name="membershipStatus" id="inactive" value="Inactive"
+            [(ngModel)]="newMember.membership_status">
           <label class="form-check-label" for="continueRatio">Inactive</label>
         </div>
       </div>

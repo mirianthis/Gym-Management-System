@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { MembersService } from '../../../services/members-service/members.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Member } from '../../../models/members.model';
 
 @Component({
   selector: 'app-add-member',
@@ -17,24 +18,7 @@ export class AddMemberComponent implements OnInit{
   
     }
 
-  newMember = {
-    first_name: '',
-    last_name: '',
-    dob: '',
-    address: '',
-    city: '',
-    zip_code: '',
-    mobile_number: '',
-    email: '',
-    username: '',
-    password: '',
-    inquiry_date: '',
-    trial_end_date: '',
-    membership_type: '',
-    class_choice: '',
-    membership_status: '',
-    first_payment_date: '',
-  };
+  newMember = new Member({});
 
   ngOnInit(): void {
     
