@@ -22,7 +22,9 @@ from gym_management_system import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('members.urls')),
+    path('api/members/', include('members.urls')),
+    path('api/membership/', include('membership.urls')),
+
 ]
 
 # Serve media files during development
