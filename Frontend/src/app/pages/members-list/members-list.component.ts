@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Member } from '../../models/members.model';
+import { response } from 'express';
 
 @Component({
   selector: 'app-members-list',
@@ -29,8 +30,17 @@ export class MembersListComponent implements OnInit {
   }
 
   // Save Changes
-  saveMember(member: any) {
-    member.editMode = false;
+  saveMember(memberId: number, memberData: any) {
+    memberData.editMode = false;
+    this.membersService.updateMember(memberId, memberData).subscribe(
+      response => {
+        console.log('Member updated successfully:', response);
+        this.members$ = this.membersService.getMembers();
+      },
+      error => {
+        console.error('Error updating member:', error);
+      }
+    )
   }
 
   // Cancel Edit
@@ -39,7 +49,17 @@ export class MembersListComponent implements OnInit {
     member.editMode = false;
   }
 
-  deleteMember(member: any) {
+  deleteMember(memberId: number) {
+    this.membersService.deleteMember(memberId).subscribe(
+      response => {
+        console.log('Member deleted successfully:', response);
+        this.members$ = this.membersService.getMembers();
+      },
+      error => {
+        console.error('Error deleting member:', error);
+      }
+    );
   }
+  
 }
 

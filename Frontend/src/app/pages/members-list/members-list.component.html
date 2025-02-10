@@ -34,10 +34,7 @@
           </td>
 
           <!-- Member Id -->
-          <td *ngIf="!member.editMode">{{ member.id }}</td>
-          <td *ngIf="member.editMode">
-            <input type="text" [(ngModel)]="member.id" class="form-control">
-          </td>
+          <td>{{ member.member_id }}</td>
 
           <!-- Member Join Date -->
           <td *ngIf="!member.editMode">{{ member.inquiry_date }}</td>
@@ -55,7 +52,7 @@
               style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;">
               <i class="fa fa-pen-to-square"></i>
             </button>
-            <button *ngIf="member.editMode" (click)="saveMember(member)"
+            <button *ngIf="member.editMode" (click)="saveMember(member.id, member)"
               style="margin-right: 5px; background-color: lightgreen; color: white; border-color: transparent;">
               <i class="fa fa-check"></i>
             </button>
@@ -63,7 +60,7 @@
               style="margin-right: 5px; background-color: gold; color: white; border-color: transparent;">
               <i class="fa fa-times"></i>
             </button>
-            <button (click)="deleteMember(member)"
+            <button (click)="deleteMember(member.id)"
               style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
               <i class="fa fa-trash-can" aria-hidden="true"></i>
             </button>
