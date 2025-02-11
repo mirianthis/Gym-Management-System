@@ -1,11 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { firstValueFrom, Observable } from 'rxjs';
+import { MembershipCategory, MembershipInstallmentPlan } from '../../models/memberships.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MembershipService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  private membershipsUrl = 'http://127.0.0.1:8000/api/membershis/';
+  private membershipListUrl = 'http://127.0.0.1:8000/api/members-list/';
+  private categoriesUrl = 'http://127.0.0.1:8000/api/categories/';
+  private installmentPlansUrl = 'http://127.0.0.1:8000/api/installments/';
 
   categories: string[] = ['Regular', 'Limited', 'Total Gym Exercises for Abs', 'Total Gym Exercises for Legs', 'Total Gym Exercises for Biceps', 'Exercise'];
   installmentPlans: string[] = ['1 Year', '6 Months', '3 Months']; 
@@ -52,33 +60,52 @@ export class MembershipService {
     }
   ];
 
-  addCategory(category: string) {
-    this.categories.push(category);
+  getMemberships(): Observable<any> {
+    return this.http.get(this.membershipsUrl);
   }
 
-  addInstallmentPlan(installmentPlan: string) {
-    this.installmentPlans.push(installmentPlan);
+  getMembershipsList(): Observable<any> {
+    return this.http.get(this.membershipListUrl);
   }
 
-  deleteCategory(category: string) {
-    this.categories = this.categories.filter(c => c !== category);
+  getMembershipById(id: number): Observable<any> {
+    return this.http.get(`${this.membershipsUrl}${id}/`);
   }
 
-  deleteInstallmentPlan(plan: string) {
-    this.installmentPlans = this.installmentPlans.filter(p => p !== plan);
+  async addMembership(membershipData: any): Promise<any> {
+    return firstValueFrom(this.http.post(this.membershipsUrl, membershipData));
   }
 
-  addMembership(membership: any) {
-    this.memberships.push({
-      id: this.memberships.length + 1, // Auto-increment ID
-      icon: membership.icon || 'fa fa-users', // Default icon
-      name: membership.name,
-      period: membership.period,
-      plan: membership.plan,
-      fee: membership.fee,
-      editMode: false,
-      originalData: {}
-    });
+  updateMembership(id: number, membershipData: any): Observable<any> {
+    return this.http.put(`${this.membershipsUrl}${id}/`, membershipData);
+  }
+
+  deleteMembership(id: number): Observable<any> {
+    return this.http.delete(`${this.membershipsUrl}${id}/`);
+  }
+  
+  getCategories(): Observable<any> {
+    return this.http.get(this.categoriesUrl);
+  }
+  
+  addCategory(categoryData: MembershipCategory): Observable<any> {
+    return this.http.post(this.categoriesUrl, categoryData);
+  }
+  
+  deleteCategory(id: number): Observable<any> {
+    return this.http.delete(`${this.categoriesUrl}${id}/`);
+  }
+
+  getInstallmentPlans(): Observable<any> {
+    return this.http.get(this.installmentPlansUrl);
+  }
+  
+  addInstallmentPlan(installmentPlan: MembershipInstallmentPlan): Observable<any> {
+    return this.http.post(this.installmentPlansUrl, installmentPlan);
+  }
+  
+  deleteInstallmentPlan(id: number): Observable<any> {
+    return this.http.delete(`${this.installmentPlansUrl}${id}/`);
   }
   
 }

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { MembershipService } from '../../../services/membership-service/membership.service';
+import { Membership, MembershipCategory, MembershipInstallmentPlan } from '../../../models/memberships.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-membership',
@@ -14,67 +16,59 @@ import { MembershipService } from '../../../services/membership-service/membersh
 })
 export class AddMembershipComponent implements OnInit{
 
-  constructor(private router: Router, private membershipService: MembershipService) {
+  constructor(private router: Router, private membershipService: MembershipService) {}
 
-  }
-  newCategory: string = ''; // Stores input value
-  categories: string[] = ['']; // Initial categories
-  
-  newInstallmentDuration: string = ''; // Stores the entered duration
-  selectedInstallmentType: string = ''; // Stores selected duration type
-  installmentPlans: string[] = ['']; // Initial installment plans
+  categories$?: Observable<any>;
+  installmentPlans$?: Observable<any>;
 
-  newMembership = {
-    name: '',
-    period: '',
-    plan: '',
-    fee: ''
-  };
+  newCategory = new MembershipCategory();
+  newInstallmentPlan =  new MembershipInstallmentPlan()
+  newMembership = new Membership();
   
   ngOnInit(): void {
-    this.categories = this.membershipService.categories;
-    this.installmentPlans = this.membershipService.installmentPlans;
+    this.categories$ = this.membershipService.getCategories();
+    this.installmentPlans$ = this.membershipService.getInstallmentPlans();
   }
 
   // Add new category
   addCategory() {
-    if (this.newCategory.trim()) {
-      this.membershipService.addCategory(this.newCategory.trim());
-      this.newCategory = ''; // Clear input field after adding
-    }
-    this.categories = this.membershipService.categories;
+    this.membershipService.addCategory(this.newCategory).subscribe(
+      response => {
+        console.log('Category added successfully:', response);
+        this.categories$ = this.membershipService.getCategories();
+      },
+      error => {
+        console.error('Error adding category:', error);
+      }
+    )
   }
 
   // Delete category
   deleteCategory(category: string) {
-    this.categories = this.categories.filter(c => c !== category);
-    this.membershipService.deleteCategory(category);
-    this.categories = this.membershipService.categories;
+    
   }
 
   // Add new installment plan
   addInstallmentPlan() {
-    if (this.newInstallmentDuration.trim() && this.selectedInstallmentType) {
-      const newPlan = `${this.newInstallmentDuration} ${this.selectedInstallmentType}`;
-      this.membershipService.addInstallmentPlan(newPlan);
-      this.newInstallmentDuration = ''; // Clear input field
-      this.selectedInstallmentType = ''; // Reset selection
-      this.installmentPlans = this.membershipService.installmentPlans;
-    }
+
   }
 
   // Delete installment plan
   deleteInstallmentPlan(plan: string) {
-    this.membershipService.deleteInstallmentPlan(plan);
-    this.installmentPlans = this.membershipService.installmentPlans;
+
   }
 
   onCancel() {
     this.router.navigate(['/membership-list']);
   }
 
-  onSave() {
-    this.membershipService.addMembership(this.newMembership);
-    this.router.navigate(['/membership-list']);
+  async onSave() {
+    try {
+      const response = await this.membershipService.addMembership(this.newMembership);
+      console.log('Membership added successfully:', response);
+      this.router.navigate(['/membership-list']);
+    } catch (error) {
+      console.error('Error adding membership:', error);
+    }
   }
 }
