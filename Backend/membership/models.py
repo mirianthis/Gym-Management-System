@@ -23,8 +23,6 @@ class Membership(models.Model):
     category = models.ForeignKey(MembershipCategory, on_delete=models.SET_NULL, null=True, blank=True)
     period = models.IntegerField(help_text="Duration in days")
     limit_type = models.CharField(max_length=10, choices=LIMIT_CHOICES)
-    limit_value = models.IntegerField(null=True, blank=True)
-    limit_unit = models.CharField(max_length=50, null=True, blank=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     selected_class = models.CharField(max_length=255)
     installment_plan = models.ForeignKey(InstallmentPlan, on_delete=models.SET_NULL, null=True, blank=True)

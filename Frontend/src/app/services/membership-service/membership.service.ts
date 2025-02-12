@@ -10,10 +10,10 @@ export class MembershipService {
 
   constructor(private http: HttpClient) { }
 
-  private membershipsUrl = 'http://127.0.0.1:8000/api/membershis/';
+  private membershipsUrl = 'http://127.0.0.1:8000/api/membership/memberships/';
   private membershipListUrl = 'http://127.0.0.1:8000/api/members-list/';
-  private categoriesUrl = 'http://127.0.0.1:8000/api/categories/';
-  private installmentPlansUrl = 'http://127.0.0.1:8000/api/installments/';
+  private categoriesUrl = 'http://127.0.0.1:8000/api/membership/categories/';
+  private installmentPlansUrl = 'http://127.0.0.1:8000/api/membership/installments/';
 
   categories: string[] = ['Regular', 'Limited', 'Total Gym Exercises for Abs', 'Total Gym Exercises for Legs', 'Total Gym Exercises for Biceps', 'Exercise'];
   installmentPlans: string[] = ['1 Year', '6 Months', '3 Months']; 

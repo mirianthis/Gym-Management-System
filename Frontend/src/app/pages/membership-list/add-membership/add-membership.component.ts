@@ -14,17 +14,17 @@ import { Observable } from 'rxjs';
   templateUrl: './add-membership.component.html',
   styleUrl: './add-membership.component.css'
 })
-export class AddMembershipComponent implements OnInit{
+export class AddMembershipComponent implements OnInit {
 
-  constructor(private router: Router, private membershipService: MembershipService) {}
+  constructor(private router: Router, private membershipService: MembershipService) { }
 
   categories$?: Observable<any>;
   installmentPlans$?: Observable<any>;
 
   newCategory = new MembershipCategory();
-  newInstallmentPlan =  new MembershipInstallmentPlan()
+  newInstallmentPlan = new MembershipInstallmentPlan()
   newMembership = new Membership();
-  
+
   ngOnInit(): void {
     this.categories$ = this.membershipService.getCategories();
     this.installmentPlans$ = this.membershipService.getInstallmentPlans();
@@ -40,22 +40,46 @@ export class AddMembershipComponent implements OnInit{
       error => {
         console.error('Error adding category:', error);
       }
-    )
+    );
   }
 
   // Delete category
-  deleteCategory(category: string) {
-    
+  deleteCategory(id: number) {
+    this.membershipService.deleteCategory(id).subscribe(
+      response => {
+        console.log('Member deleted successfully:', response);
+        this.categories$ = this.membershipService.getCategories();
+      },
+      error => {
+        console.error('Error deleting member:', error);
+      }
+    );
   }
 
   // Add new installment plan
   addInstallmentPlan() {
-
+    this.membershipService.addInstallmentPlan(this.newInstallmentPlan).subscribe(
+      response => {
+        console.log('Installment plan added successfully:', response);
+        this.installmentPlans$ = this.membershipService.getInstallmentPlans();
+      },
+      error => {
+        console.error('Error adding installment plan:', error);
+      }
+    );
   }
 
   // Delete installment plan
-  deleteInstallmentPlan(plan: string) {
-
+  deleteInstallmentPlan(id: number) {
+    this.membershipService.deleteInstallmentPlan(id).subscribe(
+      response => {
+        console.log('Installment plan deleted successfully:', response);
+        this.installmentPlans$ = this.membershipService.getInstallmentPlans();
+      },
+      error => {
+        console.error('Error deleting installment plan:', error);
+      }
+    );
   }
 
   onCancel() {
@@ -64,6 +88,8 @@ export class AddMembershipComponent implements OnInit{
 
   async onSave() {
     try {
+      this.newMembership.category = this.newCategory.id;
+      this.newMembership.installment_plan = this.newInstallmentPlan.id;
       const response = await this.membershipService.addMembership(this.newMembership);
       console.log('Membership added successfully:', response);
       this.router.navigate(['/membership-list']);

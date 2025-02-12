@@ -13,8 +13,8 @@ class InstallmentPlanSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class MembershipSerializer(serializers.ModelSerializer):
-    category = MembershipCategorySerializer()  # Nested category
-    installment_plan = InstallmentPlanSerializer()  # Nested installment plan
+    category = serializers.PrimaryKeyRelatedField(queryset=MembershipCategory.objects.all())  # Use ID
+    installment_plan = serializers.PrimaryKeyRelatedField(queryset=InstallmentPlan.objects.all())
 
     class Meta:
         model = Membership
