@@ -30,39 +30,27 @@ export class AddStaffComponent {
   };
 
   ngOnInit(): void {
-    this.roles = this.staffService.roles;
-    this.specializations = this.staffService.specializations;
+
   }
 
     // Add new role
     addRole() {
-      if (this.newRole.trim()) {
-        this.staffService.addRole(this.newRole.trim());
-        this.newRole = ''; // Clear input field after adding
-      }
-      this.roles = this.staffService.roles;
+
     }
   
     // Delete role
     deleteRole(role: string) {
-      this.roles = this.roles.filter(r => r !== role);
-      this.staffService.deleteRole(role);
-      this.roles = this.staffService.roles;
+
     }
   
     // Add new specialization
     addSpecialization() {
-      if (this.newSpecialization.trim()) {
-        this.staffService.addSpecialization(this.newSpecialization.trim());
-        this.newSpecialization = '';
-        this.specializations = this.staffService.specializations;
-      }
+
     }
   
     // Delete specialization
     deleteSpecialization(specialization: string) {
-      this.staffService.deleteSpecialization(specialization);
-      this.specializations = this.staffService.specializations;
+
     }
 
   onCancel() {

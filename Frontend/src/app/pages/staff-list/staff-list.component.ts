@@ -17,7 +17,7 @@ export class StaffListComponent {
   constructor(private staffService: StaffService) { }
 
   ngOnInit() {
-    this.staff = this.staffService.staff;
+
   }
 
   // Enable Edit Mode
