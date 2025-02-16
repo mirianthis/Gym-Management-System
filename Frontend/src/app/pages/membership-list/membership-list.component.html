@@ -23,8 +23,8 @@
           <th scope="col">Action</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let membership of memberships">
+      <tbody *ngIf="(memberships$ | async) as memberships; else loading">
+        <tr *ngFor=" let membership of memberships">
           <th scope="row">
             <i [class]="membership.icon" class="icon-style" aria-hidden="true"></i>
           </th>
@@ -42,29 +42,33 @@
           </td>
 
           <!-- Installment Plan -->
-          <td *ngIf="!membership.editMode">{{ membership.plan }}</td>
+          <td *ngIf="!membership.editMode">{{ getInstallmentPlanData(membership.installment_plan) }}</td>
           <td *ngIf="membership.editMode">
-            <input type="text" [(ngModel)]="membership.plan" class="form-control">
+            <input type="text" [(ngModel)]="membership.installment_plan" class="form-control">
           </td>
 
           <!-- Signup Fee -->
-          <td *ngIf="!membership.editMode">{{ membership.fee }}</td>
+          <td *ngIf="!membership.editMode">{{ membership.signup_fee }}</td>
           <td *ngIf="membership.editMode">
-            <input type="text" [(ngModel)]="membership.fee" class="form-control">
+            <input type="text" [(ngModel)]="membership.signup_fee" class="form-control">
           </td>
 
           <!-- Action Buttons -->
           <td>
-            <button *ngIf="!membership.editMode" (click)="editMembership(membership)" style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;">
+            <button *ngIf="!membership.editMode" (click)="editMembership(membership)"
+              style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;">
               <i class="fa fa-pen-to-square"></i>
             </button>
-            <button *ngIf="membership.editMode" (click)="saveMembership(membership)" style="margin-right: 5px; background-color: lightgreen; color: white; border-color: transparent;">
+            <button *ngIf="membership.editMode" (click)="saveMembership(membership.id, membership)"
+              style="margin-right: 5px; background-color: lightgreen; color: white; border-color: transparent;">
               <i class="fa fa-check"></i>
             </button>
-            <button *ngIf="membership.editMode" (click)="cancelEdit(membership)" style="margin-right: 5px; background-color: gold; color: white; border-color: transparent;">
+            <button *ngIf="membership.editMode" (click)="cancelEdit(membership)"
+              style="margin-right: 5px; background-color: gold; color: white; border-color: transparent;">
               <i class="fa fa-times"></i>
             </button>
-            <button (click)="deleteMembership(membership)" style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
+            <button (click)="deleteMembership(membership)"
+              style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
               <i class="fa fa-trash-can" aria-hidden="true"></i>
             </button>
           </td>
@@ -72,4 +76,8 @@
       </tbody>
     </table>
   </div>
+  <!-- Loading indicator (if members are not yet loaded) -->
+  <ng-template #loading>
+    <p>Loading members...</p>
+  </ng-template>
 </div>

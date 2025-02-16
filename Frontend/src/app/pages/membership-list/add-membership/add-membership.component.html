@@ -110,7 +110,7 @@
           <input type="text" class="form-input-field" style="width: 10vw; margin-right: 13vw;" [(ngModel)]="newInstallmentPlan.duration_number">
           <select class="form-input-field" aria-label="Default select example" style="width: 35vw;" [(ngModel)]="newInstallmentPlan.id">
             <option value="" disabled selected>Select Duration</option>
-            <option *ngFor="let installmentPlan of (installmentPlans$ | async)" [value]="installmentPlan.id">{{ installmentPlan.duration_type }}</option>
+            <option *ngFor="let installmentPlan of (installmentPlans$ | async)" [value]="installmentPlan.id">{{ installmentPlan.duration_number }} {{ installmentPlan.duration_type }}</option>
           </select>
         </div>
         <div class="form-button">
@@ -212,10 +212,10 @@
         <input type="text" class="modal-input-field" [(ngModel)]="newInstallmentPlan.duration_number" placeholder="Enter Duration Number">
         <select class="modal-input-field" [(ngModel)]="newInstallmentPlan.duration_type" aria-label="Default select example" style="width: 35vw;">
           <option value="">Select Duration</option>
-          <option value="Day">Day</option>
-          <option value="Week">Week</option>
-          <option value="Month">Month</option>
-          <option value="Year">Year</option>
+          <option value="Days">Day</option>
+          <option value="Weeks">Week</option>
+          <option value="Months">Month</option>
+          <option value="Years">Year</option>
         </select>
         <button type="button" class="modal-btn" (click)="addInstallmentPlan()">Add Installment Plan</button>
       </div>

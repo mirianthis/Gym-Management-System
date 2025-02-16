@@ -1,7 +1,8 @@
 from rest_framework import viewsets
+from rest_framework.generics import ListAPIView
 from .models import InstallmentPlan, Membership, MembershipCategory
 from rest_framework.decorators import action
-from .serializers import InstallmentPlanSerializer, MembershipCategorySerializer, MembershipSerializer
+from .serializers import InstallmentPlanSerializer, MembershipCategorySerializer, MembershipListSerializer, MembershipSerializer
 
 # ViewSets
 class MembershipCategoryViewSet(viewsets.ModelViewSet):
@@ -34,3 +35,7 @@ class MembershipViewSet(viewsets.ModelViewSet):
         membership.installment_plan = plan
         membership.save()
         return Response({'status': 'Installment plan added'})
+    
+class MembershipListViewSet(ListAPIView):
+    queryset = Membership.objects.all()
+    serializer_class = MembershipListSerializer
