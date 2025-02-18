@@ -4,11 +4,11 @@ from .views import StaffListViewSet, StaffRoleViewSet, StaffSpecializationViewSe
 
 # Using DefaultRouter to automatically generate URLs for ViewSets
 router = DefaultRouter()
-router.register(r'staff', StaffViewSet, basename='staff')
+router.register(r'staff-members', StaffViewSet, basename='staff-members')
+router.register(r'staff-list', StaffListViewSet, basename='staff-list')
 router.register(r'roles', StaffRoleViewSet, basename='role')
 router.register(r'specializations', StaffSpecializationViewSet, basename='specialization')
 
 urlpatterns = [
     path('', include(router.urls)),  # This will handle CRUD for /staff/
-    path('staff-list/', StaffListViewSet.as_view(), name='staff-list'),  # Custom staff list view
 ]

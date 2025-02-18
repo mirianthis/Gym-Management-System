@@ -10,10 +10,10 @@ export class StaffService {
 
     constructor(private http: HttpClient) { }
   
-    private staffUrl = 'http://127.0.0.1:8000/api/staff/staff/';
-    private staffListUrl = 'http://127.0.0.1:8000/api/staff-list/';
+    private staffUrl = 'http://127.0.0.1:8000/api/staff/staff-members/';
+    private staffListUrl = 'http://127.0.0.1:8000/api/staff/staff-list/';
     private rolesUrl = 'http://127.0.0.1:8000/api/staff/roles/';
-    private specializationsUrl = 'http://127.0.0.1:8000/api/staff/specialization/';
+    private specializationsUrl = 'http://127.0.0.1:8000/api/staff/specializations/';
   
   
     getStaff(): Observable<any> {
@@ -33,7 +33,7 @@ export class StaffService {
     }
   
     updateStaff(id: number, staffData: any): Observable<any> {
-      return this.http.put(`${this.staffUrl}${id}/`, staffData);
+      return this.http.put(`${this.staffListUrl}${id}/`, staffData);
     }
   
     deleteStaff(id: number): Observable<any> {
@@ -48,7 +48,7 @@ export class StaffService {
       return this.http.post(this.rolesUrl, roleData);
     }
     
-    deleteCategory(id: number): Observable<any> {
+    deleteRole(id: number): Observable<any> {
       return this.http.delete(`${this.rolesUrl}${id}/`);
     }
   

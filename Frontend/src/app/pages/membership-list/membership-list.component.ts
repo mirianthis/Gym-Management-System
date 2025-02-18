@@ -33,7 +33,7 @@ export class MembershipListComponent implements OnInit {
   }
 
   // Save Changes
-  saveMembership(membershipId: any, membershipData: any,) {
+  saveMembership(membershipId: any, membershipData: any) {
     membershipData.editMode = false;
     this.membershipService.updateMembership(membershipId, membershipData).subscribe(
       response => {

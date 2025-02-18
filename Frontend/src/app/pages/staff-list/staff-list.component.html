@@ -23,43 +23,46 @@
           <th scope="col">Action</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="(staff$ | async) as staff; else loading">
         <tr *ngFor="let staffMember of staff" style="height: 40px;">
           <th scope="row"><i class="fa fa-user" aria-hidden="true"></i></th>
-           <!-- Member Name -->
-           <td *ngIf="!staffMember.editMode">{{ staffMember.name}}</td>
+           <!-- Staff Name -->
+           <td *ngIf="!staffMember.editMode">{{ staffMember.first_name }}</td>
            <td *ngIf="staffMember.editMode">
-             <input type="text" [(ngModel)]="staffMember.name" class="form-control">
+             <input type="text" [(ngModel)]="staffMember.first_name" class="form-control">
            </td>
  
-           <!-- Member Id -->
+           <!-- Staff Role -->
            <td *ngIf="!staffMember.editMode">{{ staffMember.role }}</td>
            <td *ngIf="staffMember.editMode">
-             <input type="text" [(ngModel)]="staffMember.role" class="form-control">
+            <select class="form-control" style="appearance: auto;" aria-label="Default select example" [(ngModel)]="staffMember.role">
+              <option disabled selected>Select Role</option>
+              <option *ngFor="let role of (roles$ | async)" [value]="role.name">{{ role.name }}</option>
+            </select>
            </td>
  
-           <!-- Member Join Date -->
+           <!-- Staff Email -->
            <td *ngIf="!staffMember.editMode">{{ staffMember.email }}</td>
            <td *ngIf="staffMember.editMode">
              <input type="text" [(ngModel)]="staffMember.email" class="form-control">
            </td>
  
-           <!-- Member Expire Date -->
-           <td *ngIf="!staffMember.editMode">{{ staffMember.mobile }}</td>
+           <!-- Staff Mobile Number -->
+           <td *ngIf="!staffMember.editMode">{{ staffMember.mobile_number }}</td>
            <td *ngIf="staffMember.editMode">
-             <input type="text" [(ngModel)]="staffMember.mobile" class="form-control">
+             <input type="text" [(ngModel)]="staffMember.mobile_number" class="form-control">
            </td>
           <td>
             <button *ngIf="!staffMember.editMode" (click)="editStaff(staffMember)" style="margin-right: 5px; background-color: lightblue; color: white; border-color: transparent;">
               <i class="fa fa-pen-to-square"></i>
             </button>
-            <button *ngIf="staffMember.editMode" (click)="saveStaff(staffMember)" style="margin-right: 5px; background-color: lightgreen; color: white; border-color: transparent;">
+            <button *ngIf="staffMember.editMode" (click)="saveStaff(staffMember.id, staffMember)" style="margin-right: 5px; background-color: lightgreen; color: white; border-color: transparent;">
               <i class="fa fa-check"></i>
             </button>
             <button *ngIf="staffMember.editMode" (click)="cancelEdit(staffMember)" style="margin-right: 5px; background-color: gold; color: white; border-color: transparent;">
               <i class="fa fa-times"></i>
             </button>
-            <button (click)="deleteStaff(staffMember)" style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
+            <button (click)="deleteStaff(staffMember.id)" style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
               <i class="fa fa-trash-can" aria-hidden="true"></i>
             </button>
           </td>
@@ -67,4 +70,9 @@
       </tbody>
     </table>
   </div>
+  <!-- Loading indicator (if members are not yet loaded) -->
+  <ng-template #loading>
+    <p>Loading members...</p>
+  </ng-template>
 </div>
+

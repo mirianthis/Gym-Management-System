@@ -35,6 +35,6 @@ class StaffViewSet(viewsets.ModelViewSet):
         staff.save()
         return Response({'status': 'Staff specialization added'})
     
-class StaffListViewSet(ListAPIView):
+class StaffListViewSet(viewsets.ModelViewSet):
     queryset = Staff.objects.all()
     serializer_class = StaffListSerializer

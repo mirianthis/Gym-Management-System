@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.name">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.first_name">
           </div>
         </div>
         <div class="row form-row">
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.middle_name">
           </div>
         </div>
         <div class="row form-row">
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.last_name">
           </div>
         </div>
         <div class="row form-row">
@@ -54,9 +54,10 @@
             </div>
           </div>
           <div class="form-input">
-            <select class="form-input-field" aria-label="Default select example">
-              <option selected>Male</option>
-              <option value="1">Female</option>
+            <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newStaff.gender">
+              <option disabled selected>Select Gender</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
             </select>
           </div>
         </div>
@@ -67,7 +68,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.date_of_birth">
           </div>
         </div>
         <div class="row form-row">
@@ -77,10 +78,9 @@
             </div>
           </div>
           <div class="form-input" style="display:-webkit-box">
-            <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newStaff.role">
-              <option selected>Select Role</option>
-              <option value="1">*</option>
-              <option value="2">*</option>
+            <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newRole.name">
+              <option disabled selected>Select Role</option>
+              <option *ngFor="let role of (roles$ | async)" [value]="role.name">{{ role.name }}</option>
             </select>
           </div>
           <div class="form-button">
@@ -94,10 +94,9 @@
             </div>
           </div>
           <div class="form-input" style="display:-webkit-box">
-            <select class="form-input-field" aria-label="Default select example">
+            <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newSpecialization.name">
               <option selected>Select Specialization</option>
-              <option value="1">*</option>
-              <option value="2">*</option>
+              <option *ngFor="let specialization of (specializations$ | async)" [value]="specialization.name">{{ specialization.name }}</option>
             </select>
           </div>
           <div class="form-button">
@@ -121,7 +120,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.home_town_address">
           </div>
         </div>
         <div class="row form-row">
@@ -131,7 +130,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.city">
           </div>
         </div>
         <div class="row form-row">
@@ -141,7 +140,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.mobile_number">
           </div>
         </div>
         <div class="row form-row">
@@ -151,7 +150,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.mobile">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.phone">
           </div>
         </div>
         <div class="row form-row">
@@ -180,7 +179,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="text" name="" id="">
+            <input class="form-input-field" type="text" name="" id="" [(ngModel)]="newStaff.username">
           </div>
         </div>
         <div class="row form-row">
@@ -190,7 +189,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="password" name="" id="">
+            <input class="form-input-field" type="password" name="" id="" [(ngModel)]="newStaff.password">
           </div>
         </div>
         <div class="row form-row">
@@ -200,7 +199,7 @@
             </div>
           </div>
           <div class="form-input">
-            <input class="form-input-field" type="file" id="formFile">
+            <input class="form-input-field" type="file" id="formFile" [(ngModel)]="newStaff.display_image">
           </div>
         </div>
       </div>
@@ -227,7 +226,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-subheader">
-        <input type="text" class="modal-input-field" [(ngModel)]="newSpecialization" placeholder="Enter Specialization">
+        <input type="text" class="modal-input-field" [(ngModel)]="newSpecialization.name" placeholder="Enter Specialization">
         <button type="button" class="modal-btn" (click)="addSpecialization()">Add Specialization</button>
       </div>
       <div class="modal-body">
@@ -238,11 +237,11 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngIf="specializations$ | async as specializations">
             <tr *ngFor="let specialization of specializations">
-              <td>{{ specialization }}</td>
+              <td>{{ specialization.name }}</td>
               <td>
-                <button class="btn btn-danger" (click)="deleteSpecialization(specialization)">Delete</button>
+                <button class="btn btn-danger" (click)="deleteSpecialization(specialization.id)">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -265,7 +264,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-subheader">
-        <input type="text" class="modal-input-field" [(ngModel)]="newRole" placeholder="Enter Role">
+        <input type="text" class="modal-input-field" [(ngModel)]="newRole.name" placeholder="Enter Role">
         <button type="button" class="modal-btn" (click)="addRole()">Add Role</button>
       </div>
       <div class="modal-body">
@@ -276,11 +275,11 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngIf="roles$ | async as roles">
             <tr *ngFor="let role of roles">
-              <td>{{ role }}</td>
+              <td>{{ role.name }}</td>
               <td>
-                <button class="btn btn-danger" (click)="deleteRole(role)">Delete</button>
+                <button class="btn btn-danger" (click)="deleteRole(role.id)">Delete</button>
               </td>
             </tr>
           </tbody>
