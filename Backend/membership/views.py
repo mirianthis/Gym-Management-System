@@ -36,6 +36,6 @@ class MembershipViewSet(viewsets.ModelViewSet):
         membership.save()
         return Response({'status': 'Installment plan added'})
     
-class MembershipListViewSet(ListAPIView):
+class MembershipListViewSet(viewsets.ModelViewSet):
     queryset = Membership.objects.all()
     serializer_class = MembershipListSerializer

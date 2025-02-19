@@ -20,12 +20,12 @@ class Membership(models.Model):
     ]
     
     name = models.CharField(max_length=255)
-    category = models.ForeignKey(MembershipCategory, on_delete=models.SET_NULL, null=True, blank=True)
+    category = models.CharField(max_length=100)
     period = models.IntegerField(help_text="Duration in days")
     limit_type = models.CharField(max_length=10, choices=LIMIT_CHOICES)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     selected_class = models.CharField(max_length=255)
-    installment_plan = models.ForeignKey(InstallmentPlan, on_delete=models.SET_NULL, null=True, blank=True)
+    installment_plan = models.CharField(max_length=100)
     signup_fee = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField(max_length=500)
     image = models.ImageField(upload_to='membership_images/', null=True, blank=True)
