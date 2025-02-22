@@ -42,9 +42,12 @@
           </td>
 
           <!-- Installment Plan -->
-          <td *ngIf="!membership.editMode">{{ getInstallmentPlanData(membership.installment_plan) }}</td>
+          <td *ngIf="!membership.editMode">{{ membership.installment_plan }}</td>
           <td *ngIf="membership.editMode">
-            <input type="text" [(ngModel)]="membership.installment_plan" class="form-control">
+            <select class="form-control" style="appearance: auto;" aria-label="Default select example" [(ngModel)]="membership.duration_type">
+              <option disabled selected>Select Role</option>
+              <option *ngFor="let installmentPlan of (installmentPlans$ | async)" [value]="installmentPlan.duration_type">{{ installmentPlan.duration_number }} {{ installmentPlan.duration_type }}</option>
+            </select>
           </td>
 
           <!-- Signup Fee -->
@@ -67,7 +70,7 @@
               style="margin-right: 5px; background-color: gold; color: white; border-color: transparent;">
               <i class="fa fa-times"></i>
             </button>
-            <button (click)="deleteMembership(membership)"
+            <button (click)="deleteMembership(membership.id)"
               style="margin-right: 5px; background-color: lightcoral; color: white; border-color: transparent;">
               <i class="fa fa-trash-can" aria-hidden="true"></i>
             </button>

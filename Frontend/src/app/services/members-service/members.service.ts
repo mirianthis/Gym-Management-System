@@ -10,7 +10,7 @@ export class MembersService {
 
   constructor(private http: HttpClient) { }
 
-  private memberUrl = 'http://127.0.0.1:8000/api/members/';
+  private memberUrl = 'http://127.0.0.1:8000/api/members/members/';
   private memberListUrl = 'http://127.0.0.1:8000/api/members-list/';
 
 
@@ -34,8 +34,8 @@ export class MembersService {
   }
 
   // Add a new member
-  async addMember(memberData: any): Promise<any> {
-    return firstValueFrom(this.http.post(this.memberUrl, memberData));
+  addMember(memberData: any): Observable<any> {
+    return this.http.post(this.memberUrl, memberData);
   }
 
   // Update a member

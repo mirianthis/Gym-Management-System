@@ -12,16 +12,16 @@ import { Member } from '../../../models/members.model';
   templateUrl: './add-member.component.html',
   styleUrl: './add-member.component.css'
 })
-export class AddMemberComponent implements OnInit{
+export class AddMemberComponent implements OnInit {
 
   constructor(private router: Router, private membersService: MembersService) {
-  
-    }
+
+  }
 
   newMember = new Member({});
 
   ngOnInit(): void {
-    
+
   }
 
   onAddMembership() {
@@ -33,13 +33,15 @@ export class AddMemberComponent implements OnInit{
     this.router.navigate(['/members-list']);
   }
 
-  async onSave() {
-    try {
-      const response = await this.membersService.addMember(this.newMember);
+  onSave() {
+
+    this.membersService.addMember(this.newMember).subscribe(response => {
       console.log('Member added successfully:', response);
       this.router.navigate(['/members-list']);
-    } catch (error) {
-      console.error('Error adding member:', error);
-    }
+
+    },
+      err => {
+        console.error('Error adding member:', err);
+      });
   }
 }

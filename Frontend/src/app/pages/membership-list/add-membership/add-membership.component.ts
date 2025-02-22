@@ -36,6 +36,7 @@ export class AddMembershipComponent implements OnInit {
       response => {
         console.log('Category added successfully:', response);
         this.categories$ = this.membershipService.getCategories();
+        this.newCategory.name = '';
       },
       error => {
         console.error('Error adding category:', error);
@@ -62,6 +63,8 @@ export class AddMembershipComponent implements OnInit {
       response => {
         console.log('Installment plan added successfully:', response);
         this.installmentPlans$ = this.membershipService.getInstallmentPlans();
+        this.newInstallmentPlan.duration_type = '';
+        this.newInstallmentPlan.duration_number = undefined;
       },
       error => {
         console.error('Error adding installment plan:', error);
@@ -86,15 +89,16 @@ export class AddMembershipComponent implements OnInit {
     this.router.navigate(['/membership-list']);
   }
 
-  async onSave() {
-    try {
-      this.newMembership.category = this.newCategory.id;
-      this.newMembership.installment_plan = this.newInstallmentPlan.id;
-      const response = await this.membershipService.addMembership(this.newMembership);
-      console.log('Membership added successfully:', response);
-      this.router.navigate(['/membership-list']);
-    } catch (error) {
-      console.error('Error adding membership:', error);
+  onSave() {
+      this.newMembership.category = this.newCategory.name;
+      this.newMembership.installment_plan = this.newInstallmentPlan.duration_number + " " + this.newInstallmentPlan.duration_type;
+      this.membershipService.addMembership(this.newMembership).subscribe(data => {
+        console.log('Membership added successfully:', data);
+        this.router.navigate(['/membership-list']);
+      },
+        error => {
+          console.error('Error adding membership:', error);
+        }
+      );
     }
-  }
 }

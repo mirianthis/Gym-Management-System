@@ -30,9 +30,9 @@
           </div>
         </div>
         <div class="form-input">
-          <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newCategory.id">
+          <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newCategory.name">
             <option value="" disabled selected>Select Category</option>
-            <option *ngFor="let category of (categories$ | async)" [value]="category.id">{{ category.name }}</option>
+            <option *ngFor="let category of (categories$ | async)" [value]="category.name">{{ category.name }}</option>
           </select>
         </div>
         <div class="form-button">
@@ -108,9 +108,9 @@
         </div>
         <div class="form-input" style="display:-webkit-box">
           <input type="text" class="form-input-field" style="width: 10vw; margin-right: 13vw;" [(ngModel)]="newInstallmentPlan.duration_number">
-          <select class="form-input-field" aria-label="Default select example" style="width: 35vw;" [(ngModel)]="newInstallmentPlan.id">
+          <select class="form-input-field" aria-label="Default select example" style="width: 35vw;" [(ngModel)]="newInstallmentPlan.duration_type">
             <option value="" disabled selected>Select Duration</option>
-            <option *ngFor="let installmentPlan of (installmentPlans$ | async)" [value]="installmentPlan.id">{{ installmentPlan.duration_number }} {{ installmentPlan.duration_type }}</option>
+            <option *ngFor="let installmentPlan of (installmentPlans$ | async)" [value]="installmentPlan.duration_type">{{ installmentPlan.duration_number }} {{ installmentPlan.duration_type }}</option>
           </select>
         </div>
         <div class="form-button">

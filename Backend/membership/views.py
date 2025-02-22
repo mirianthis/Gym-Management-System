@@ -25,14 +25,15 @@ class MembershipViewSet(viewsets.ModelViewSet):
         membership.category = category
         membership.save()
         return Response({'status': 'Category added'})
-
+    
     @action(detail=True, methods=['post'])
     def add_installment_plan(self, request, pk=None):
         membership = self.get_object()
         duration = request.data.get('duration')
         plan_type = request.data.get('plan_type')
-        plan, created = InstallmentPlan.objects.get_or_create(duration=duration, plan_type=plan_type)
-        membership.installment_plan = plan
+
+        plan, _ = InstallmentPlan.objects.get_or_create(duration_number=duration, duration_type=plan_type)
+        membership.installment_plan = f"{plan.duration_number} {plan.duration_type}"  # Save as string
         membership.save()
         return Response({'status': 'Installment plan added'})
     

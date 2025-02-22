@@ -22,7 +22,7 @@ export class MembershipListComponent implements OnInit {
   constructor(private membershipService: MembershipService) { }
 
   ngOnInit(): void {
-    this.memberships$ = this.membershipService.getMemberships();
+    this.memberships$ = this.membershipService.getMembershipsList();
     this.installmentPlans$ = this.membershipService.getInstallmentPlans();
   }
 
@@ -38,7 +38,7 @@ export class MembershipListComponent implements OnInit {
     this.membershipService.updateMembership(membershipId, membershipData).subscribe(
       response => {
         console.log('Membership updated successfully:', response);
-        this.memberships$ = this.membershipService.getMemberships();
+        this.memberships$ = this.membershipService.getMembershipsList();
       },
       error => {
         console.error('Error updating membership:', error);
@@ -63,24 +63,4 @@ export class MembershipListComponent implements OnInit {
       }
     );
   }
-
-  getInstallmentPlanData(installmentPlanId: number) {
-    if (installmentPlanId === 1) {
-      return '1 day'
-    } else if (installmentPlanId === 2) {
-      return '1 week'
-    }
-    else if (installmentPlanId === 3) {
-      return '1 month'
-    }
-    else if (installmentPlanId === 4) {
-      return '1 year'
-    } else {
-      return;
-    }
-  }
-
-
-
-
 }

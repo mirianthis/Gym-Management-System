@@ -1,13 +1,13 @@
 export class Membership {
   id?: number; // Optional, only needed if updating existing memberships
   name: string;
-  category: number;
+  category: string;
   period: string;
   noOfDays?: number; // Optional, only if period is not unlimited
   limit_type: 'Limited' | 'Unlimited';
   amount: number;
   selected_class: string;
-  installment_plan!: number;
+  installment_plan!: string;
   signup_fee: number;
   description: string;
   image?: string; // Store image URL
@@ -17,6 +17,7 @@ export class Membership {
     this.id = data.id;
     this.name = data.name || '';
     this.category = data.category!;
+    this.installment_plan = data.installment_plan!;
     this.period = data.period || '';
     this.noOfDays = data.noOfDays;
     this.limit_type = data.limit_type || 'Limited';
@@ -43,13 +44,13 @@ export class MembershipCategory {
 
 export class MembershipInstallmentPlan {
   id: number;
-  duration_number: number;
+  duration_number: number | undefined;
   duration_type: string;
   originalData?: any;
 
   constructor(data: Partial<MembershipInstallmentPlan> = {}) {
     this.id = data.id || 0;
-    this.duration_number = data.duration_number || 0;
+    this.duration_number = data.duration_number || undefined;
     this.duration_type = data.duration_type || '';
     this.originalData = data.originalData;
   }
