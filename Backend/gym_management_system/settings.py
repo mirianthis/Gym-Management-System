@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'members',
     'membership',
     'staff',
+    'settings',
     'rest_framework'
 
 ]
