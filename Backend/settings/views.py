@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from rest_framework import status
 from .models import GymSettings
 from .serializers import GymSettingsSerializer
@@ -28,3 +29,11 @@ class GymSettingsViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         
         return Response({"detail": "Gym settings not found."}, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def check_settings_exists(request):
+    settings = GymSettings.objects.first()  # Get the first settings record if it exists
+    if settings:
+        return Response({"exists": True, "settings_id": settings.id})
+    else:
+        return Response({"exists": False})  # Return exists: false instead of 404

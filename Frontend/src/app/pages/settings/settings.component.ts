@@ -32,9 +32,9 @@ export class SettingsComponent {
 
 
   onSave(settingsId: number, settingsData: any) {
-    this.settings$?.subscribe(data => {
-      if (data) {
-        this.settingsService.updateSettings(settingsId, settingsData).subscribe(data => {
+    this.settingsService.getCheckSettings().subscribe(data => {
+      if (data.exists) {
+        this.settingsService.updateSettings(data.settings_id, settingsData).subscribe(data => {
           console.log('Settings updated successfully:', data);
           this.router.navigate(['/dashboard']);
         },
