@@ -59,6 +59,7 @@
 
 .navbar__grub.sidebar-active .sidebar__content {
   margin-left: 15vw;
+  width: 85vw;
 }
 
 .fa {

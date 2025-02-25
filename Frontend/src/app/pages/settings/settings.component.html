@@ -14,65 +14,67 @@
           <div class="field-title">
             <span>Gym Name</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.gym_name">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Starting Year</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.starting_year">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Gym Address</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.gym_address">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Office Phone Number</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.office_phone_number">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Country</span>
           </div>
-          <select class="input-field" aria-label="Default select example">
-            <option selected>Larnaka</option>
-            <option value="1">Nicosia</option>
-            <option value="2">Limassol</option>
-            <option value="3">Pafos</option>
+          <select class="input-field" aria-label="Default select example" [(ngModel)]="newSettings.country">
+            <option selected disabled>Select Country</option>
+            <option value="Larnaka">Larnaka</option>
+            <option value="Nicosia">Nicosia</option>
+            <option value="Limassol">Limassol</option>
+            <option value="Pafos">Pafos</option>
           </select>
         </div>
         <div class="field">
           <div class="field-title">
             <span>System Language</span>
           </div>
-          <select class="input-field" aria-label="Default select example">
-            <option selected>English</option>
-            <option value="1">Greek</option>
-            <option value="2">Russian</option>
-            <option value="3">Arabic</option>
+          <select class="input-field" aria-label="Default select example" [(ngModel)]="newSettings.system_language">
+            <option selected disabled>Select Language</option>
+            <option value="English">English</option>
+            <option value="Greek">Greek</option>
+            <option value="Russian">Russian</option>
+            <option value="Arabic">Arabic</option>
           </select>
         </div>
         <div class="field">
           <div class="field-title">
             <span>Email</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.email">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Gym Logo</span>
           </div>
-          <input class="input-field" type="file" id="formFile">
+          <input class="input-field" type="file" id="formFile" [(ngModel)]="newSettings.gym_logo">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Cover Image</span>
           </div>
-          <input class="input-field" type="file" id="formFile">
+          <input class="input-field" type="file" id="formFile" [(ngModel)]="newSettings.cover_image">
         </div>
       </div>
     </div>
@@ -87,37 +89,37 @@
           <div class="field-title">
             <span>Weight</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.weight_unit">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Height</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.height_unit">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Chest</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.chest_unit">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Waist</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.waist_unit">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Arms</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.arms_unit">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Fat</span><span style="color: red; margin-left: 4px;">*</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.fat_unit">
         </div>
       </div>
     </div>
@@ -133,7 +135,7 @@
             <span>Member can view other member's details</span>
           </div>
           <div class="input-field-container">
-            <input class="checkbox" type="checkbox" name="" id="">
+            <input class="checkbox" type="checkbox" name="" id="" [(ngModel)]="newSettings.member_can_view_others">
           </div>
         </div>
         <div class="field">
@@ -141,7 +143,7 @@
             <span>Staff Member can view own trainee member's details</span>
           </div>
           <div class="input-field-container">
-            <input class="checkbox" type="checkbox" name="" id="">
+            <input class="checkbox" type="checkbox" name="" id="" [(ngModel)]="newSettings.staff_can_view_trainees">
           </div>
         </div>
       </div>
@@ -158,20 +160,20 @@
             <span>Enable Alert Email</span>
           </div>
           <div class="input-field-container">
-            <input class="checkbox" type="checkbox" name="" id="">
+            <input class="checkbox" type="checkbox" name="" id="" [(ngModel)]="newSettings.enable_alert_email">
           </div>
         </div>
         <div class="field">
           <div class="field-title">
             <span>Reminder Before Days</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.reminder_before_days">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Reminder Message</span>
           </div>
-          <textarea class="input-field" rows="5"></textarea>
+          <textarea class="input-field" rows="5" [(ngModel)]="newSettings.reminder_message"></textarea>
         </div>
       </div>
     </div>
@@ -187,7 +189,7 @@
             <span>Members can message each other</span>
           </div>
           <div class="input-field-container">
-            <input class="checkbox" type="checkbox" name="" id="">
+            <input class="checkbox" type="checkbox" name="" id="" [(ngModel)]="newSettings.members_can_message_each_other">
           </div>
         </div>
       </div>
@@ -203,13 +205,13 @@
           <div class="field-title">
             <span>Left Header Text</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.left_header_text">
         </div>
         <div class="field">
           <div class="field-title">
             <span>Footer Text</span>
           </div>
-          <input class="input-field" type="text" name="" id="">
+          <input class="input-field" type="text" name="" id="" [(ngModel)]="newSettings.footer_text">
         </div>
       </div>
     </div>
@@ -217,8 +219,9 @@
   <div class="row">
     <div class="measurement-units">
       <div class="footer">
-        <button class="footer-button" (click)="onSave(0, newSettings)">Save Settings</button>
-        <button class="footer-button" (click)="onCancel()">Cancel</button>
+        <button class="footer-button" (click)="onSave(newSettings)">Save Settings</button>
+        <button class="footer-button" [disabled]="!settingsExist" (click)="onClear()">Clear</button>
       </div>
   </div>
 </div>
+<p-toast></p-toast>

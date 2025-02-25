@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  
   <div class="row">
     <div class="header">
       <div>
@@ -11,6 +12,7 @@
       </button>
     </div>
   </div>
+
   <div class="row">
     <div class="membership-list">
       <div class="row form-row">
@@ -46,8 +48,11 @@
           </div>
         </div>
         <div class="form-input" style="display:-webkit-box">
-          <span class="" style="width: 6vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;" id="days">No. of Days</span>
-          <input type="text" class="form-input-field" style="width: 54vw;" aria-describedby="days" [(ngModel)]="newMembership.period">
+          <span class=""
+            style="width: 6vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;"
+            id="days">No. of Days</span>
+          <input type="text" class="form-input-field" style="width: 54vw;" aria-describedby="days"
+            [(ngModel)]="newMembership.period">
         </div>
       </div>
       <div class="row form-row">
@@ -59,16 +64,20 @@
         <div class="form-input" style="display:-webkit-box">
           <div class="form-input-radio" style="width: 15vw;">
             <!-- Limited Option -->
-            <input class="" type="radio" name="memberRatio" id="limited" value="Limited" [(ngModel)]="newMembership.limit_type">
+            <input class="" type="radio" name="memberRatio" id="limited" value="Limited"
+              [(ngModel)]="newMembership.limit_type">
             <label class="form-check-label" for="limited">Limited</label>
-          
+
             <!-- Unlimited Option -->
-            <input class="" type="radio" name="memberRatio" id="unlimited" value="Unlimited" [(ngModel)]="newMembership.limit_type">
+            <input class="" type="radio" name="memberRatio" id="unlimited" value="Unlimited"
+              [(ngModel)]="newMembership.limit_type">
             <label class="form-check-label" for="unlimited">Unlimited</label>
           </div>
-          
-          <input type="text" class="form-input-field" style="width: 14vw; margin-right: 1vw;" [(ngModel)]="newMembership.noOfDays" [disabled]="newMembership.limit_type === 'Unlimited'">
-          <select class="form-input-field" aria-label="Default select example" style="width: 30vw;" [disabled]="newMembership.limit_type === 'Unlimited'">
+
+          <input type="text" class="form-input-field" style="width: 14vw; margin-right: 1vw;"
+            [(ngModel)]="newMembership.noOfDays" [disabled]="newMembership.limit_type === 'Unlimited'">
+          <select class="form-input-field" aria-label="Default select example" style="width: 30vw;"
+            [disabled]="newMembership.limit_type === 'Unlimited'">
             <option selected>Select Category</option>
             <option value="1">Class per Week</option>
             <option value="2">Class per Month</option>
@@ -82,8 +91,11 @@
           </div>
         </div>
         <div class="form-input" style="display:-webkit-box">
-          <span class="" style="width: 2vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;" id="days">$</span>
-          <input type="text" class="form-input-field" style="width: 58vw;" aria-describedby="days" [(ngModel)]="newMembership.amount">
+          <span class=""
+            style="width: 2vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;"
+            id="days">$</span>
+          <input type="text" class="form-input-field" style="width: 58vw;" aria-describedby="days"
+            [(ngModel)]="newMembership.amount">
         </div>
       </div>
       <div class="row form-row">
@@ -93,7 +105,8 @@
           </div>
         </div>
         <div class="form-input">
-          <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newMembership.selected_class">
+          <select class="form-input-field" aria-label="Default select example"
+            [(ngModel)]="newMembership.selected_class">
             <option selected>Select Class</option>
             <option value="Yoga">Yoga</option>
             <option value="Pilates">Pilates</option>
@@ -107,14 +120,18 @@
           </div>
         </div>
         <div class="form-input" style="display:-webkit-box">
-          <input type="text" class="form-input-field" style="width: 10vw; margin-right: 13vw;" [(ngModel)]="newInstallmentPlan.duration_number">
-          <select class="form-input-field" aria-label="Default select example" style="width: 35vw;" [(ngModel)]="newInstallmentPlan.duration_type">
+          <input type="text" class="form-input-field" style="width: 10vw; margin-right: 13vw;"
+            [(ngModel)]="newInstallmentPlan.duration_number">
+          <select class="form-input-field" aria-label="Default select example" style="width: 35vw;"
+            [(ngModel)]="newInstallmentPlan.duration_type">
             <option value="" disabled selected>Select Duration</option>
-            <option *ngFor="let installmentPlan of (installmentPlans$ | async)" [value]="installmentPlan.duration_type">{{ installmentPlan.duration_number }} {{ installmentPlan.duration_type }}</option>
+            <option *ngFor="let installmentPlan of (installmentPlans$ | async)" [value]="installmentPlan.duration_type">
+              {{ installmentPlan.duration_number }} {{ installmentPlan.duration_type }}</option>
           </select>
         </div>
         <div class="form-button">
-          <button class="btn button" data-bs-toggle="modal" data-bs-target="#addInstallmentPlanModal">Add installment plan</button>
+          <button class="btn button" data-bs-toggle="modal" data-bs-target="#addInstallmentPlanModal">Add installment
+            plan</button>
         </div>
       </div>
       <div class="row form-row">
@@ -124,8 +141,11 @@
           </div>
         </div>
         <div class="form-input" style="display:-webkit-box">
-          <span class="" style="width: 2vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;" id="days">$</span>
-          <input type="text" class="form-input-field" style="width: 58vw;" aria-describedby="days" [(ngModel)]="newMembership.signup_fee">
+          <span class=""
+            style="width: 2vw; border: 1px solid; background-color: lightgrey; font-weight: 500; display: flex; justify-content: center;"
+            id="days">$</span>
+          <input type="text" class="form-input-field" style="width: 58vw;" aria-describedby="days"
+            [(ngModel)]="newMembership.signup_fee">
         </div>
       </div>
       <div class="row form-row" style="height: 200px; align-items: flex-start;">
@@ -135,7 +155,8 @@
           </div>
         </div>
         <div class="form-input">
-          <textarea type="text" class="form-input-field" style="height: 200px;" [(ngModel)]="newMembership.description"></textarea>
+          <textarea type="text" class="form-input-field" style="height: 200px;"
+            [(ngModel)]="newMembership.description"></textarea>
         </div>
       </div>
       <div class="row form-row">
@@ -150,96 +171,100 @@
       </div>
     </div>
   </div>
-  
-
-<div class="row">
-  <div class="measurement-units">
-    <div class="footer">
-      <button class="footer-button" (click)="onSave()">Save Membership</button>
-      <button class="footer-button" (click)="onCancel()">Cancel</button>
-    </div>
-  </div>
-</div>
 
 
-<!-- Add Category Modal -->
-<div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Category</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-subheader">
-        <input type="text" class="modal-input-field" [(ngModel)]="newCategory.name" placeholder="Enter Category Name">
-        <button type="button" class="modal-btn" (click)="addCategory()">Add Category</button>
-      </div>
-      <div class="modal-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Category</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody *ngIf="categories$ | async as categories">
-            <tr *ngFor="let category of categories">
-              <td>{{ category.name }}</td>
-              <td>
-                <button class="btn btn-danger" (click)="deleteCategory(category.id)">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+  <div class="row">
+    <div class="measurement-units">
+      <div class="footer">
+        <button class="footer-button" (click)="onSave()">Save Membership</button>
+        <button class="footer-button" (click)="onCancel()">Cancel</button>
       </div>
     </div>
   </div>
-</div>
 
 
-<!-- Add Installment Plan Modal -->
-<div class="modal fade" id="addInstallmentPlanModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Installment Plan</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-subheader">
-        <input type="text" class="modal-input-field" [(ngModel)]="newInstallmentPlan.duration_number" placeholder="Enter Duration Number">
-        <select class="modal-input-field" [(ngModel)]="newInstallmentPlan.duration_type" aria-label="Default select example" style="width: 35vw;">
-          <option value="">Select Duration</option>
-          <option value="Days">Day</option>
-          <option value="Weeks">Week</option>
-          <option value="Months">Month</option>
-          <option value="Years">Year</option>
-        </select>
-        <button type="button" class="modal-btn" (click)="addInstallmentPlan()">Add Installment Plan</button>
-      </div>
-      <div class="modal-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Plan</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody *ngIf="installmentPlans$ | async as installmentPlans">
-            <tr *ngFor="let plan of installmentPlans">
-              <td>{{ plan.duration_number }} {{ plan.duration_type }}</td>
-              <td>
-                <button class="btn btn-danger" (click)="deleteInstallmentPlan(plan.id)">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+  <!-- Add Category Modal -->
+  <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Category</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-subheader">
+          <input type="text" class="modal-input-field" [(ngModel)]="newCategory.name" placeholder="Enter Category Name">
+          <button type="button" class="modal-btn" (click)="addCategory()">Add Category</button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="categories$ | async as categories">
+              <tr *ngFor="let category of categories">
+                <td>{{ category.name }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteCategory(category.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+
+  <!-- Add Installment Plan Modal -->
+  <div class="modal fade" id="addInstallmentPlanModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add/Remove Installment Plan</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-subheader">
+          <input type="text" class="modal-input-field" [(ngModel)]="newInstallmentPlan.duration_number"
+            placeholder="Enter Duration Number">
+          <select class="modal-input-field" [(ngModel)]="newInstallmentPlan.duration_type"
+            aria-label="Default select example" style="width: 35vw;">
+            <option value="">Select Duration</option>
+            <option value="Days">Day</option>
+            <option value="Weeks">Week</option>
+            <option value="Months">Month</option>
+            <option value="Years">Year</option>
+          </select>
+          <button type="button" class="modal-btn" (click)="addInstallmentPlan()">Add Installment Plan</button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Plan</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="installmentPlans$ | async as installmentPlans">
+              <tr *ngFor="let plan of installmentPlans">
+                <td>{{ plan.duration_number }} {{ plan.duration_type }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteInstallmentPlan(plan.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
