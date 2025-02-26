@@ -1,8 +1,11 @@
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
+from django.contrib.auth.models import User
 
 class Member(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
     # Personal Information
     first_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100, blank=True, null=True)
@@ -18,7 +21,6 @@ class Member(models.Model):
     zip_code = models.CharField(max_length=20)
     mobile_number = models.CharField(max_length=15)
     phone = models.CharField(max_length=15, blank=True, null=True)
-    email = models.EmailField()
     
     # Physical Information
     weight = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
@@ -30,8 +32,6 @@ class Member(models.Model):
     fat = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
 
     # Login Information
-    username = models.CharField(max_length=100, unique=True)
-    password = models.CharField(max_length=100)
     display_image = models.ImageField(upload_to='members/photos/', blank=True, null=True)
 
     # More Information

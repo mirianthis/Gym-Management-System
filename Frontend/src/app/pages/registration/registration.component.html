@@ -1,0 +1,14 @@
+<div class="login-container">
+  <form class="login">
+      <i class="fa fa-dumbbell fa-3x" aria-hidden="true"></i>
+      <h2>CODE GYM</h2>
+      <input type="text" name="user" placeholder="User Name"  [(ngModel)]="newUser.username"/>
+      <input type="password" name="pass" placeholder="Password" [(ngModel)]="newUser.password" />
+      <input type="text" name="email" placeholder="Email" [(ngModel)]="newUser.email" />
+      <input type="submit" name="" value="Register" (click)="onRegister()" />
+      <div class="links">
+          <a routerLink="/login" style="color: #F44336;">Back to login page</a>
+      </div>
+  </form>
+</div>
+<p-toast></p-toast>

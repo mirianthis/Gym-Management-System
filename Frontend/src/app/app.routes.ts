@@ -9,6 +9,7 @@ import { MembershipListComponent } from './pages/membership-list/membership-list
 import { AddMembershipComponent } from './pages/membership-list/add-membership/add-membership.component';
 import { StaffListComponent } from './pages/staff-list/staff-list.component';
 import { AddStaffComponent } from './pages/staff-list/add-staff/add-staff.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
   },
   {
     path: '',

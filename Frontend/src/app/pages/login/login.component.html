@@ -2,11 +2,12 @@
     <form class="login">
         <i class="fa fa-dumbbell fa-3x" aria-hidden="true"></i>
         <h2>CODE GYM</h2>
-        <input type="text" name="user" placeholder="User Name"  [(ngModel)]="loginObj.userName"/>
-        <input type="password" name="pass" placeholder="Password" [(ngModel)]="loginObj.password" />
+        <input type="text" name="user" placeholder="User Name"  [(ngModel)]="credentials.username"/>
+        <input type="password" name="pass" placeholder="Password" [(ngModel)]="credentials.password" />
         <input type="submit" name="" value="Log In" (click)="onLogin()" />
         <div class="links">
-            <a routerLink="/member-registration" style="color: #F44336;">Member Registration</a>
+            <a routerLink="/register" style="color: #F44336;">Member Registration</a>
         </div>
     </form>
 </div>
+<p-toast></p-toast>
