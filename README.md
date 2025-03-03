@@ -1,7 +1,7 @@
 # Gym Management System
 
 ## 📌 Project Overview
-The **Gym Management System** is a web-based application designed to streamline gym operations, including **membership management, staff management, and gym settings configuration**. It provides an intuitive **Angular-based frontend** and a **Django REST API backend** for efficient data handling.
+The **Gym Management System** is a web-based application designed to streamline gym operations, including **membership management, staff management, admin panel and gym settings configuration**. It provides an intuitive **Angular-based frontend** and a **Django REST API backend** for efficient data handling.
 
 ## 🏗️ Tech Stack
 ### Frontend:
@@ -28,8 +28,13 @@ Frontend/
 │   │   ├── pages/
 │   │   │   ├── login/
 │   │   │   ├── registration/
+│   │   │   ├── dashboard/
+│   │   │   ├── layout/
+│   │   │   ├── members-list/
+│   │   │   ├── membership-list/
+│   │   │   ├── staff-list/
+│   │   │   ├── settings/
 │   │   ├── services/
-│   │   ├── components/
 │   │   ├── models/
 │   ├── assets/
 │   ├── environments/
@@ -45,6 +50,7 @@ gym_management_system/
 ├── membership/
 ├── staff/
 ├── settings/
+├── media/
 ├── gym_management_system/
 │   ├── settings.py
 │   ├── urls.py
@@ -116,7 +122,7 @@ The frontend will be available at `http://localhost:4200/`, and the backend at `
 ---
 ## ✨ Features in Progress
 - [ ] Payment Gateway Integration (Stripe/PayPal)
-- [ ] Dashboard with Analytics
+- [ ] User Progress View
 - [ ] Mobile Responsiveness Improvements
 
 ---
