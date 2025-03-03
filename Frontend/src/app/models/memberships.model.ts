@@ -10,7 +10,7 @@ export class Membership {
   installment_plan!: string;
   signup_fee: number;
   description: string;
-  image?: string; // Store image URL
+  image?: File; // Store image URL
   originalData?: any;
 
   constructor(data: Partial<Membership> = {}) {

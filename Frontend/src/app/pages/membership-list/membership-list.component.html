@@ -26,7 +26,8 @@
       <tbody *ngIf="(memberships$ | async) as memberships; else loading">
         <tr *ngFor=" let membership of memberships">
           <th scope="row">
-            <i [class]="membership.icon" class="icon-style" aria-hidden="true"></i>
+            <!-- <i [class]="membership.icon" class="icon-style" aria-hidden="true"></i> -->
+            <img class="icon-style" *ngIf="membership.image" [src]="membership.image" alt="Membership Image" width="200">
           </th>
 
           <!-- Membership Name -->

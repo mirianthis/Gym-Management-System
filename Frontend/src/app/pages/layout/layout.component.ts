@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthenticationService } from '../../services/login-service/authentication.service';
+import { LayoutService } from '../../services/layout-service/layout.service';
 
 @Component({
   selector: 'app-layout',
@@ -16,7 +17,7 @@ export class LayoutComponent implements OnInit{
   activeItem: string = '';
   userName?: string = '';
 
-  constructor(public authService: AuthenticationService) {}
+  constructor(public authService: AuthenticationService, private layoutService: LayoutService) {}
 
   ngOnInit(): void {
     this.userName = this.authService.username;
@@ -25,6 +26,8 @@ export class LayoutComponent implements OnInit{
 
   toggleSidebar(): void {
     this.sidebarActive = !this.sidebarActive;
+    this.layoutService.sideBarVisibleSubject$.next(this.sidebarActive);
+
   }
 
   isActive(item: string): boolean {

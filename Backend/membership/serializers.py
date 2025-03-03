@@ -64,7 +64,7 @@ class MembershipListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Membership
-        fields = ['id', 'name', 'period', 'installment_plan', 'signup_fee']
+        fields = ['id', 'name', 'period', 'installment_plan', 'signup_fee', 'image']
 
     def update(self, instance, validated_data):
         # Handle installment plan update
@@ -83,6 +83,7 @@ class MembershipListSerializer(serializers.ModelSerializer):
         instance.name = validated_data.get('name', instance.name)
         instance.period = validated_data.get('period', instance.period)
         instance.signup_fee = validated_data.get('signup_fee', instance.signup_fee)
+        instance.image = validated_data.get('image', instance.image)
         
         instance.save()
         return instance

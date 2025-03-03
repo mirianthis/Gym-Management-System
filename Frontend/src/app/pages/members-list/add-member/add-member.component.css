@@ -138,3 +138,10 @@
   display: flex;
   align-items: center;
 }
+
+.button {
+  background-color: var(--background-primary-color);
+  color: white;
+  border-color: lightgray;
+  width: 180px;
+}

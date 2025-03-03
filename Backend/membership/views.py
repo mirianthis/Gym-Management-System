@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, parsers
 from rest_framework.generics import ListAPIView
 from .models import InstallmentPlan, Membership, MembershipCategory
 from rest_framework.decorators import action
@@ -16,6 +16,7 @@ class InstallmentPlanViewSet(viewsets.ModelViewSet):
 class MembershipViewSet(viewsets.ModelViewSet):
     queryset = Membership.objects.all()
     serializer_class = MembershipSerializer
+    parser_classes = (parsers.MultiPartParser, parsers.FormParser)
 
     @action(detail=True, methods=['post'])
     def add_category(self, request, pk=None):
@@ -40,3 +41,4 @@ class MembershipViewSet(viewsets.ModelViewSet):
 class MembershipListViewSet(viewsets.ModelViewSet):
     queryset = Membership.objects.all()
     serializer_class = MembershipListSerializer
+    parser_classes = (parsers.MultiPartParser, parsers.FormParser)

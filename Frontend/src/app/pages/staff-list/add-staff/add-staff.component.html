@@ -77,13 +77,13 @@
               <span>Assign Role</span><span style="color: red; margin-left: 4px;">*</span>
             </div>
           </div>
-          <div class="form-input" style="display:-webkit-box">
+          <div class="form-input">
             <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newRole.name">
               <option disabled selected>Select Role</option>
               <option *ngFor="let role of (roles$ | async)" [value]="role.name">{{ role.name }}</option>
             </select>
           </div>
-          <div class="form-button">
+          <div class="form-button col-3">
             <button class="btn button" data-bs-toggle="modal" data-bs-target="#addRoleModal">Add/Remove Role</button>
           </div>
         </div>
@@ -93,13 +93,13 @@
               <span>Specialization</span><span style="color: red; margin-left: 4px;">*</span>
             </div>
           </div>
-          <div class="form-input" style="display:-webkit-box">
+          <div class="form-input">
             <select class="form-input-field" aria-label="Default select example" [(ngModel)]="newSpecialization.name">
               <option selected>Select Specialization</option>
               <option *ngFor="let specialization of (specializations$ | async)" [value]="specialization.name">{{ specialization.name }}</option>
             </select>
           </div>
-          <div class="form-button">
+          <div class="form-button col-3">
             <button class="btn button" data-bs-toggle="modal" data-bs-target="#addSpecializationModal">Add/Remove
               Specialization</button>
           </div>

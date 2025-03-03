@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MembershipService } from '../../../services/membership-service/membership.service';
 import { Membership, MembershipCategory, MembershipInstallmentPlan } from '../../../models/memberships.model';
 import { Observable } from 'rxjs';
+import { LayoutService } from '../../../services/layout-service/layout.service';
 
 @Component({
   selector: 'app-add-membership',
@@ -16,14 +17,17 @@ import { Observable } from 'rxjs';
 })
 export class AddMembershipComponent implements OnInit {
 
-  constructor(private router: Router, private membershipService: MembershipService) { }
+  constructor(private router: Router, private membershipService: MembershipService, private layoutService: LayoutService) { }
 
   categories$?: Observable<any>;
   installmentPlans$?: Observable<any>;
+  sideBarVisible$?: Observable<boolean> = this.layoutService.sideBarVisibleObs$;
 
   newCategory = new MembershipCategory();
   newInstallmentPlan = new MembershipInstallmentPlan()
   newMembership = new Membership();
+
+  selectedFile: File | null = null;
 
   ngOnInit(): void {
     this.categories$ = this.membershipService.getCategories();
@@ -90,15 +94,40 @@ export class AddMembershipComponent implements OnInit {
   }
 
   onSave() {
-      this.newMembership.category = this.newCategory.name;
-      this.newMembership.installment_plan = this.newInstallmentPlan.duration_number + " " + this.newInstallmentPlan.duration_type;
-      this.membershipService.addMembership(this.newMembership).subscribe(data => {
+    this.newMembership.category = this.newCategory.name;
+    this.newMembership.installment_plan = this.newInstallmentPlan.duration_number + " " + this.newInstallmentPlan.duration_type;
+
+    const formData = new FormData();
+
+    formData.append('name', this.newMembership.name);
+    formData.append('category', this.newCategory.name);
+    formData.append('period', this.newMembership.period);
+    formData.append('limit_type', this.newMembership.limit_type);
+    formData.append('amount', this.newMembership.amount.toString());
+    formData.append('selected_class', this.newMembership.selected_class);
+    formData.append('installment_plan', this.newInstallmentPlan.duration_number + " " + this.newInstallmentPlan.duration_type);
+    formData.append('signup_fee', this.newMembership.signup_fee.toString());
+    formData.append('description', this.newMembership.description);
+  
+    // Append image file if selected
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile, this.selectedFile.name);
+    }
+
+    this.membershipService.addMembership(formData).subscribe(
+      data => {
         console.log('Membership added successfully:', data);
         this.router.navigate(['/membership-list']);
       },
-        error => {
-          console.error('Error adding membership:', error);
-        }
-      );
+      error => {
+        console.error('Error adding membership:', error);
+      }
+    );
+  }
+
+  onFileSelected(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
     }
+  }
 }

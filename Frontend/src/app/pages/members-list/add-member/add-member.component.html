@@ -220,6 +220,7 @@
         </div>
         <div class="form-input">
           <select class="form-input-field" aria-label="Default select example">
+            <option [ngValue]="null" disabled selected>Select Staff</option>
             <option [ngValue]="'Joseph Bratt'">Joseph Bratt</option>
             <option [ngValue]="'John Doe'">John Doe</option>
             <option [ngValue]="'Berry Green'">Berry Green</option>
@@ -228,7 +229,7 @@
           </select>
         </div>
         <div class="form-button">
-          <button>Add staff</button>
+          <button class="btn button" routerLink="/add-staff">Add staff</button>
         </div>
       </div>
       <div class="row form-row">
@@ -248,7 +249,7 @@
           </select>
         </div>
         <div class="form-button">
-          <button>Add/Remove</button>
+          <button class="btn button">Add/Remove</button>
         </div>
       </div>
       <div class="row form-row">
@@ -259,13 +260,13 @@
         </div>
         <div class="form-input">
           <select class="form-input-field" aria-label="Default select example">
-            <option selected>Select Source</option>
+            <option [ngValue]="null" disabled selected>Select Source</option>
             <option value="1">*</option>
             <option value="2">*</option>
           </select>
         </div>
         <div class="form-button">
-          <button>Add/Remove</button>
+          <button class="btn button">Add/Remove</button>
         </div>
       </div>
       <div class="row form-row">
@@ -285,7 +286,7 @@
           </select>
         </div>
         <div class="form-button">
-          <button>Add Staff</button>
+          <button class="btn button" routerLink="/add-staff">Add Staff</button>
         </div>
       </div>
       <div class="row form-row">
@@ -339,7 +340,7 @@
           </select>
         </div>
         <div class="form-button">
-          <button (click)="onAddMembership()">Add Membership</button>
+          <button class="btn button" (click)="onAddMembership()">Add Membership</button>
         </div>
       </div>
       <div class="row form-row">
@@ -356,7 +357,7 @@
           </select>
         </div>
         <div class="form-button">
-          <button>Add Class</button>
+          <button class="btn button">Add Class</button>
         </div>
       </div>
       <div class="row form-row">

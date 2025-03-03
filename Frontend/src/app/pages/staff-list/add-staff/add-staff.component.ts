@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Staff, StaffRole, StaffSpecialization } from '../../../models/staff.model';
 import { error } from 'console';
+import { LayoutService } from '../../../services/layout-service/layout.service';
 
 @Component({
   selector: 'app-add-staff',
@@ -17,13 +18,14 @@ import { error } from 'console';
 export class AddStaffComponent {
   roles$?: Observable<any>;
   specializations$?: Observable<any>;
+  sideBarVisible$?: Observable<boolean> = this.layoutService.sideBarVisibleObs$;
 
   newRole = new StaffRole();
   newSpecialization = new StaffSpecialization()
   newStaff = new Staff();
 
 
-  constructor(private router: Router, private staffService: StaffService) { }
+  constructor(private router: Router, private staffService: StaffService, private layoutService: LayoutService) { }
 
 
   ngOnInit(): void {
