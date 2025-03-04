@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
   private apiUrl = 'http://127.0.0.1:8000/api/authentication/'; // Change if using a different backend URL
-  username?: string;
+
+  private _username?: string;
 
   constructor(private http: HttpClient) {}
 
@@ -21,5 +22,13 @@ export class AuthenticationService {
 
   logout(refreshToken: string): Observable<any> {
     return this.http.post(`${this.apiUrl}logout/`, { refresh: refreshToken });
+  }
+
+  get username(): string {
+    return this.username;
+  }
+  
+  set username(value: string) {
+    this.username = value;
   }
 }
