@@ -91,6 +91,9 @@ python manage.py migrate
 
 # Start the Django server
 python manage.py runserver
+
+# Run Unit Tests
+python manage.py test
 ```
 
 ### **2️⃣ Frontend (Angular)**
@@ -103,6 +106,9 @@ npm install
 
 # Start the Angular development server
 npm run dev
+
+# Run Unit Tests
+ng test
 ```
 The frontend will be available at `http://localhost:4200/`, and the backend at `http://127.0.0.1:8000/`.
 
